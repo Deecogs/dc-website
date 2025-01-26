@@ -297,7 +297,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="we-specialize-sec bg-[url('/image/we-specialize.gif')] bg-no-repeat bg-cover bg-center py-[56px]  lg:py-[196px]">
+        <section className="we-specialize-sec bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/we-specialize.gif')] bg-no-repeat bg-cover bg-center py-[56px]  lg:py-[196px]">
           <div className="container px-[10px] mx-auto">
             <div className="flex flex-wrap flex-row">
               <div className="basis-full lg:basis-6/12">
@@ -908,7 +908,7 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="smart-note-tab flex py-[56px] lg:py-0 items-center h-full lg:h-[953px] bg-[url('/image/End-to-End.gif')] bg-no-repeat bg-cover bg-cente">
+        <section className="smart-note-tab flex py-[56px] lg:py-0 items-center h-full lg:h-[953px] bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/End-to-End.gif')] bg-no-repeat bg-cover bg-cente">
           <div className="container  mx-auto">
             <div className="text-center">
               <div>

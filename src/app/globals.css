@@ -20,7 +20,7 @@ body {
   font-family: Helvetica;
 }
 .hero-bg{
-  background-image:  url("/image/hero-anim.gif"), url("/image/hero-bg.png") ;
+  background-image:  url("https://dcmedvectorstore.blob.core.windows.net/website-videos/hero-anim.gif"), url("/image/hero-bg.png") ;
   background-size: cover;
   background-position: center;
   

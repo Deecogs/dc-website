@@ -14,7 +14,7 @@ export default function ComingSoon() {
   return (
     <>
       <main>
-        <section className="bg-[url('/image/coming-soon.gif')] overflow-auto py-[10px] md:py-[59px] px-[10px] md:px-[92px] bg-center bg-cover bg-no-repeat  xl:h-screen">
+        <section className="bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/coming-soon.gif')] overflow-auto py-[10px] md:py-[59px] px-[10px] md:px-[92px] bg-center bg-cover bg-no-repeat  xl:h-screen">
           <div className="container px-[10px] h-full  mx-auto">
             <div className="flex-wrap flex-row flex items-center justify-center h-full">
               <div className="basis-full">
