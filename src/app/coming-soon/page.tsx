@@ -1,14 +1,15 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React from "react";
+// import React, { useRef, useState } from "react";
 // Import Swiper React components
-import { Flowbite, Navbar } from "flowbite-react";
+// import { Flowbite, Navbar } from "flowbite-react";
 import Link from "next/link";
 // Import Swiper styles
-import Slider from "react-slick";
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+// import Slider from "react-slick";
+// import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 
 // import required modules
-import { Pagination } from "swiper/modules";
+// import { Pagination } from "swiper/modules";
 
 export default function ComingSoon() {
   return (

@@ -10,10 +10,10 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
+
     --foreground: #ededed;
   }
 }
-
 body {
   color: var(--foreground);
   background: var(--background);
@@ -41,7 +41,6 @@ background: linear-gradient(to right, #FE6623 50%, #0A0C1A 100%);
   margin-left: 0px !important;
   border-radius: 0px;
   line-height: 38px;
- 
 }
 .slider-tab-bar button:focus{
   outline: 0px;

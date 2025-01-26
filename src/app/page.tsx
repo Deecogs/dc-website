@@ -2,7 +2,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
-import Image from "next/image";
+// import Image from "next/image";
 import { Flowbite, Navbar } from "flowbite-react";
 import Link from "next/link";
 // Import Swiper styles
@@ -12,7 +12,8 @@ import { Tabs } from "flowbite-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+import { Button, Modal} from "flowbite-react";
+// import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 
 const customTheme = {
   navbar: {
@@ -297,6 +298,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+
         <section className="we-specialize-sec bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/we-specialize.gif')] bg-no-repeat bg-cover bg-center py-[56px]  lg:py-[196px]">
           <div className="container px-[10px] mx-auto">
             <div className="flex flex-wrap flex-row">
