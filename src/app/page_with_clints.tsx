@@ -1188,6 +1188,225 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <section className="what-our-clients bg-[#6e6e731f] py-[56px] lg:py-[84px]">
+          <div className="container px-[10px] mx-auto">
+            <div>
+              <span className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000]">
+                Testimonials
+              </span>
+              <div className="flex mb-[28px] mt-[28px] flex-row flex-wrap lg:flex-nowrap items-start">
+                <div className="grow">
+                  <h2 className="text-[26px] lg:text-[48px]  text-[#000000] leading-normal font-normal">
+                    <span>What our</span>{" "}
+                    <span className="heading-orange">Clients</span> Say
+                  </h2>
+                  <p className="text-[22px] mt-[26px] font-normal lg:max-w-[518px] text-[#000000bf]">
+                    Discover what our clients say about the transformative
+                    impact of DeeCogs Technologies' AI solutions
+                  </p>
+                </div>
+                <div className="shrink-1 lg:shrink-0 mt-[15px] lg:mt-0 lg:text-end">
+                  <p className="text-[22px] mb-[23px] font-normal lg:max-w-[518px] text-[#0000007d]">
+                    Let’s brief something out us here, do give a thumbs do give.
+                  </p>
+                  <div className="flex mb-[23px] lg:justify-end flex-wrap items-center">
+                    <div>
+                      <img
+                        src="/image/client-1.png"
+                        className="max-w-full  lg:w-[64px] w-[50px] h-[50px] lg:h-[64px] object-cover object-center"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-ms-5">
+                      <img
+                        src="/image/client-2.png"
+                        className="max-w-full   lg:w-[64px] w-[50px] h-[50px] lg:h-[64px] object-cover object-center"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-ms-5">
+                      <img
+                        src="/image/client-3.png"
+                        className="max-w-full   lg:w-[64px] w-[50px] h-[50px] lg:h-[64px] object-cover object-center"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-ms-5">
+                      <img
+                        src="/image/client-4.png"
+                        className="max-w-full   lg:w-[64px] w-[50px] h-[50px] lg:h-[64px] object-cover object-center"
+                        alt=""
+                      />
+                    </div>
+                    <div className="-ms-5 rounded-[100%] bg-white lg:w-[64px] w-[50px] h-[50px] lg:h-[64px] flex justify-center items-center">
+                      <span className="text-[18px] lg:text-[22px] font-normal text-[#000000db]">
+                        +24
+                      </span>
+                    </div>
+                  </div>
+                  <a
+                    className="text-[#FE6623] text-[18px] lg:text-[22px] font-normal"
+                    href="#"
+                  >
+                    Read More
+                  </a>
+                </div>
+              </div>
+              <div className="grid place-items-end grid-cols-1  lg:grid-cols-3 lg:gap-x-[56px] gap-x-[15px]  gap-y-[20px] lg:gap-y-[29px]">
+                <div>
+                  <div className="rounded-[24px] bg-white p-[20px] lg:p-[39px]">
+                    <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      I highly recommend DeeCogs' fintech solutions. Their bank
+                      statement analyzer, CIBIL report parser, and invoice
+                      parser are precise, efficient, and have streamlined our
+                      processes significantly. These tools save time, enhance
+                      decision-making, and improve productivity, making them
+                      invaluable for our organization aiming for operational
+                      excellence.
+                    </p>
+                    {/* <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      Sorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Etiam eu turpis molestie, dictum est a, mattis tellus.
+                    </p> */}
+                    <div className="mt-[53px] flex flex-wrap flex-row items-center">
+                      <div className="shrink-0 me-[15px]">
+                        <img
+                          src="/image/r-1.png"
+                          className="max-w-full w-[55px] h-[55px] object-cover object-center"
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex-grow">
+                        <img
+                          src="/image/jumio.png"
+                          className="max-w-full h-[30px]"
+                          alt=""
+                        />
+                        <span className="text-[16px] font-normal text-[#000000]">
+                          Akshay Kila
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="rounded-[24px] mb-[29px] bg-white p-[39px]">
+                    <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      We partnered with DeeCogs’ to customize their triage tool
+                      to fit our unique needs. The AI-powered triage system has
+                      significantly reduced our doctors' workload while
+                      improving patient care efficiency. This solution has been
+                      a game-changer for our business.
+                    </p>
+
+                    <div className="mt-[53px] flex flex-wrap flex-row items-center">
+                      <div className="shrink-0 me-[15px]">
+                        <img
+                          src="/image/madhur-srivastava.png"
+                          className="max-w-full w-[55px] h-[55px] object-cover object-center"
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex-grow">
+                        <img
+                          src="/image/real.png"
+                          className="max-w-full h-[25px]"
+                          alt=""
+                        />
+                        <span className="text-[16px] font-normal text-[#000000cc]">
+                          Madhur Srivastava
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-[24px]  bg-white p-[39px]">
+                    <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      The Smart Note Tab has streamlined patient history
+                      summaries, reducing interaction time and workload,
+                      allowing me to focus more on diagnoses.
+                    </p>
+
+                    <div className="mt-[53px] flex flex-wrap flex-row items-center">
+                      {/* <div className="shrink-0 me-[15px]">
+            <img src="/image/client-1.png" className="max-w-full w-[55px] h-[55px] object-cover object-center" alt="" />
+          </div> */}
+                      <div className="flex-grow">
+                        {/* <img
+                          src="/image/jumio.png"
+                          className="max-w-full w-[51px]"
+                        /> */}
+
+                        <span className="text-[16px] font-bold italic block text-[#000000cc]">
+                          Fateh Physiotherapy Clinic
+                        </span>
+                        <span className="text-[16px] block font-normal text-[#000000cc]">
+                          Dr. Chetan
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <div className="rounded-[24px] mb-[29px]  bg-white p-[39px]">
+                    <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      The Smart Note Tab from DeeCogs’ has revolutionized my
+                      teaching by providing clear, structured, and engaging
+                      notes that enhance student learning.
+                    </p>
+
+                    <div className="mt-[53px] flex flex-wrap flex-row items-center">
+                      <div className="shrink-0 me-[15px]">
+                        <img
+                          src="/image/Bhagwan-Sharma-c.png"
+                          className="max-w-full w-[55px] h-[55px] object-cover object-center"
+                          alt=""
+                        />
+                      </div>
+                      <div className="flex-grow">
+                        <img
+                          src="/image/Bhagwan-Sharma.png"
+                          className="max-w-full h-[21px]"
+                        />
+                        <span className="text-[16px] font-normal text-[#000000cc]">
+                          Dr. Bhagwan Sharma
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="rounded-[24px]  bg-white p-[39px]">
+                    <p className="text-[18px] lg:text-[22px] font-normal mb-[15px] lg:mb-[20px] text-[#000000bf]">
+                      Sorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Etiam eu turpis molestie, dictum est a, mattis tellus. Sed
+                      dignissim, metus nec fringilla accumsan, risus sem
+                      sollicitudin lacus, ut interdum tellus elit sed risus.
+                    </p>
+
+                    <div className="mt-[53px] flex flex-wrap flex-row items-center">
+                      {/* <div className="shrink-0 me-[15px]">
+                        <img
+                          src="/image/client-1.png"
+                          className="max-w-full w-[55px] h-[55px] object-cover object-center"
+                          alt=""
+                        />
+                      </div> */}
+                    <div className="flex-grow">
+  <span className="text-[16px] font-bold italic block  text-[#000000cc]">
+    
+    Shobha Engineering Workshop 
+
+  </span>
+  <span className="text-[16px] block font-normal text-[#000000cc]">
+  Mr. Rudal Sharma
+  </span>
+</div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
         <section className="py-[56px] lg:py-[166px] latest-insights">
           <div className="container px-[10px] mx-auto">
             <div className="text-center">
