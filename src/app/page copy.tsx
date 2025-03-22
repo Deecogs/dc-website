@@ -12,16 +12,15 @@ import { Tabs } from "flowbite-react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
-
 import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 
 const customTheme = {
   navbar: {
     collapse: {
-      base: "w-[344px] md:w-[532px] xl:w-full mobile-menu transition-transform fixed z-40 right-0 top-0 xl:static  xl:block xl:w-auto",
+      base: "w-full  xl:block xl:w-auto",
 
       hidden: {
-        on: " translate-x-full ",
+        on: "hidden",
         off: "",
       },
     },
@@ -75,12 +74,11 @@ export default function Home() {
     const [isHoveredThree, setIsHoveredThree] = useState(false);
     const [isHoveredFour, setIsHoveredFour] = useState(false);
   
-    
 
   return (
     <>
       <Flowbite theme={{ theme: customTheme }}>
-      <header className="absolute z-20 w-100 start-0 right-0 top-0">
+        <header className="absolute z-20 w-100 start-0 right-0 top-0">
           <div className="container max-w-[90rem]  mx-auto">
             <Navbar
               className="bg-transparent py-0 md:py-[15px] xl:py-[30px]"
@@ -95,11 +93,7 @@ export default function Home() {
               </Navbar.Brand>
               <Navbar.Toggle />
               <Navbar.Collapse>
-                <ul className="flex mobile-ul flex-col p-4 xl:p-0 text-[16px] xl:text-[18px] w-full mt-0 border-t border-[#ffffffb3] bg-white xl:bg-black xl:bg-transparent items-end  space-y-[32px] xl:space-y-0   xl:flex-row xl:space-x-8 rtl:space-x-reverse xl:mt-0 xl:border-0 ">
-                  <li className="block toogle0btns xl:hidden">
-                  <Navbar.Toggle />
-                  </li>
-                  
+                <ul className="flex flex-col p-4 xl:p-0 text-[16px] xl:text-[18px] w-full mt-0 border-t border-[#ffffffb3] bg-white xl:bg-black xl:bg-transparent items-end  space-y-[32px] xl:space-y-0   xl:flex-row xl:space-x-8 rtl:space-x-reverse xl:mt-0 xl:border-0 ">
                   <li>
                     <Link
                       href="#"
@@ -149,7 +143,7 @@ export default function Home() {
                   <li>
                     <Link
                       href="#"
-                      className="text-white xl:hidden inline-block me-[10px]  font-normal text-[16px] bg-[#FE6623E3]  xl:text-[22px] border py-[8px] px-[36px] rounded-[24px] hover:bg-[#fe6623] border-[#fe6623]"
+                      className="text-white xl:hidden inline-block me-[27px]  font-normal text-[16px] bg-[#FE6623E3]  xl:text-[22px] border py-[8px] px-[36px] rounded-[24px] hover:bg-[#fe6623] border-[#fe6623]"
                     >
                       {" "}
                       Book a Demo
@@ -1193,7 +1187,7 @@ export default function Home() {
               </div>
               <div className="bg-[#FE66232E] items-center flex flex-row  rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
                 <div className="shrink-0">
-                  {/* <svg
+                  <svg
                     className="[height:_clamp(32px,2vw,79px)]"
                     viewBox="0 0 79 80"
                     fill="none"
@@ -1203,8 +1197,7 @@ export default function Home() {
                       d="M39.5016 44.3484C40.7462 44.3481 41.8136 43.9206 42.6699 43.0644C43.5266 42.2077 43.9529 41.1407 43.95 39.8972C43.947 38.6551 43.5198 37.5893 42.6665 36.7331C41.8123 35.8759 40.7453 35.4484 39.5 35.4484C38.2546 35.4484 37.1876 35.8759 36.3334 36.7331C35.4802 37.5893 35.0529 38.6551 35.05 39.8972C35.0471 41.1412 35.4751 42.2094 36.334 43.0683C37.1929 43.9272 38.2598 44.3541 39.5016 44.3484ZM39.5016 44.3484C39.501 44.3484 39.5005 44.3484 39.5 44.3484V43.8484L39.5023 44.3484C39.5021 44.3484 39.5018 44.3484 39.5016 44.3484ZM51.3516 44.3484C52.5962 44.3481 53.6636 43.9206 54.5199 43.0644C55.3766 42.2077 55.8029 41.1407 55.8 39.8972C55.797 38.6551 55.3698 37.5893 54.5165 36.7331C53.6623 35.8759 52.5953 35.4484 51.35 35.4484C50.1046 35.4484 49.0376 35.8759 48.1834 36.7331C47.3302 37.5893 46.9029 38.6551 46.9 39.8972C46.897 41.1412 47.3251 42.2094 48.184 43.0683C49.0429 43.9272 50.1098 44.3541 51.3516 44.3484ZM51.3516 44.3484C51.351 44.3484 51.3505 44.3484 51.35 44.3484V43.8484L51.3523 44.3484C51.3521 44.3484 51.3518 44.3484 51.3516 44.3484ZM27.6516 44.3484C28.8963 44.3481 29.9636 43.9206 30.8199 43.0644C31.6766 42.2077 32.1029 41.1407 32.1 39.8972C32.097 38.6551 31.6698 37.5893 30.8166 36.7331C29.9623 35.8759 28.8954 35.4484 27.65 35.4484C26.4046 35.4484 25.3376 35.8759 24.4834 36.7331C23.6302 37.5893 23.2029 38.6551 23.2 39.8972C23.1971 41.1412 23.6251 42.2094 24.484 43.0683C25.3429 43.9272 26.4098 44.3541 27.6516 44.3484ZM27.6516 44.3484C27.6511 44.3484 27.6505 44.3484 27.65 44.3484V43.8484L27.6524 44.3484C27.6521 44.3484 27.6519 44.3484 27.6516 44.3484ZM39.5016 56.1984C40.7462 56.1981 41.8136 55.7706 42.6699 54.9144C43.5266 54.0577 43.9529 52.9907 43.95 51.7472C43.947 50.5051 43.5198 49.4393 42.6665 48.5831C41.8123 47.7259 40.7453 47.2984 39.5 47.2984C38.2546 47.2984 37.1876 47.7259 36.3334 48.5831C35.4802 49.4393 35.0529 50.5051 35.05 51.7472C35.0471 52.9912 35.4751 54.0594 36.334 54.9183C37.1929 55.7772 38.2598 56.2041 39.5016 56.1984ZM39.5016 56.1984C39.501 56.1984 39.5005 56.1984 39.5 56.1984V55.6984L39.5023 56.1984C39.5021 56.1984 39.5018 56.1984 39.5016 56.1984ZM51.3516 56.1984C52.5962 56.1981 53.6636 55.7706 54.5199 54.9144C55.3766 54.0577 55.8029 52.9907 55.8 51.7472C55.797 50.5051 55.3698 49.4393 54.5165 48.5831C53.6623 47.7259 52.5953 47.2984 51.35 47.2984C50.1046 47.2984 49.0376 47.7259 48.1834 48.5831C47.3302 49.4393 46.9029 50.5051 46.9 51.7472C46.897 52.9912 47.3251 54.0594 48.184 54.9183C49.0429 55.7772 50.1098 56.2041 51.3516 56.1984ZM51.3516 56.1984C51.351 56.1984 51.3505 56.1984 51.35 56.1984V55.6984L51.3523 56.1984C51.3521 56.1984 51.3518 56.1984 51.3516 56.1984ZM27.6516 56.1984C28.8963 56.1981 29.9636 55.7706 30.8199 54.9144C31.6766 54.0577 32.1029 52.9907 32.1 51.7472C32.097 50.5051 31.6698 49.4393 30.8166 48.5831C29.9623 47.7259 28.8954 47.2984 27.65 47.2984C26.4046 47.2984 25.3376 47.7259 24.4834 48.5831C23.6302 49.4393 23.2029 50.5051 23.2 51.7472C23.1971 52.9912 23.6251 54.0594 24.484 54.9183C25.3429 55.7772 26.4098 56.2041 27.6516 56.1984ZM27.6516 56.1984C27.6511 56.1984 27.6505 56.1984 27.65 56.1984V55.6984L27.6524 56.1984C27.6521 56.1984 27.6519 56.1984 27.6516 56.1984ZM39.5016 32.4984C40.7462 32.4981 41.8136 32.0706 42.6699 31.2144L39.5016 32.4984ZM39.5016 32.4984C39.501 32.4984 39.5005 32.4984 39.5 32.4984V31.9984L39.5023 32.4984C39.5021 32.4984 39.5018 32.4984 39.5016 32.4984ZM51.3516 32.4984C52.5962 32.4981 53.6636 32.0706 54.5199 31.2144L51.3516 32.4984ZM51.3516 32.4984C51.351 32.4984 51.3505 32.4984 51.35 32.4984V31.9984L51.3523 32.4984C51.3521 32.4984 51.3518 32.4984 51.3516 32.4984ZM27.6516 32.4984C28.8963 32.4981 29.9636 32.0706 30.8199 31.2144L27.6516 32.4984ZM27.6516 32.4984C27.6511 32.4984 27.6505 32.4984 27.65 32.4984V31.9984L27.6524 32.4984C27.6521 32.4984 27.6518 32.4984 27.6516 32.4984ZM39.5005 78.8984H39.5C34.1009 78.8984 29.0337 77.8736 24.2932 75.8268C19.5428 73.7757 15.4157 70.9969 11.9072 67.491C8.39884 63.9853 5.62021 59.8583 3.57177 55.1055C1.5274 50.3622 0.502607 45.2947 0.500005 39.8982C0.497403 34.502 1.52213 29.4349 3.57159 24.6918C5.62537 19.9386 8.40418 15.8115 11.9074 12.3056C15.4105 8.79994 19.5375 6.02126 24.293 3.97015C29.039 1.92319 34.1063 0.898438 39.5 0.898438C44.8937 0.898438 49.961 1.92319 54.7069 3.97015C59.4625 6.02126 63.5895 8.79994 67.0925 12.3056C70.5958 15.8115 73.376 19.9388 75.4324 24.692C77.4844 29.4349 78.5078 34.5017 78.5 39.8977C78.4921 45.2946 77.4673 50.3623 75.428 55.1059C73.3849 59.8584 70.6065 63.9851 67.0931 67.4907C63.579 70.9969 59.4516 73.7771 54.7064 75.8309C49.9715 77.8802 44.9046 78.9036 39.5005 78.8984Z"
                       stroke="black"
                     />
-                  </svg> */}
-                  <svg className="[height:_clamp(32px,2vw,79px)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/></svg>
+                  </svg>
                 </div>
                 <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
                   <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
@@ -1218,7 +1211,7 @@ export default function Home() {
               </div>
               <div className="bg-[#FE66232E] items-center flex flex-row  rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
                 <div className="shrink-0">
-                  {/* <svg
+                  <svg
                     className="[height:_clamp(32px,2vw,79px)]"
                     viewBox="0 0 79 80"
                     fill="none"
@@ -1229,8 +1222,7 @@ export default function Home() {
                       stroke="black"
                       strokeWidth="1.5"
                     />
-                  </svg> */}
-                  <svg className="[height:_clamp(32px,2vw,79px)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/></svg>
+                  </svg>
                 </div>
                 <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
                   <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
@@ -1606,7 +1598,7 @@ export default function Home() {
             alt=""
           />
         </section>
-        <section className="smart-note-tab flex py-[88px] lg:py-0 items-center md:h-screen bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/End-to-End.gif')] bg-no-repeat bg-cover bg-cente">
+        <section className="smart-note-tab flex py-[88px] lg:py-0 items-center md:h-screen bg-[url('/image/End-to-End.gif')] bg-no-repeat bg-cover bg-cente">
           <div className="container max-w-[90rem]  mx-auto px-[10px]">
             <div className="text-center">
               <div>
@@ -1651,7 +1643,7 @@ export default function Home() {
               </div>
             </div>
             <div className="grid grid-cols-2  md:grid-cols-3  gap-x-[15px] lg:gap-x-[43px] gap-y-[30px] lg:gap-y-[53px] place-items-stretch">
-              <div className="flex flex-col justify-between [padding:_clamp(14px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="flex [padding:_clamp(14px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Scaling Operations Efficiently
                 </h3>
@@ -1688,7 +1680,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-col justify-between [padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="[padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Improving Decision Accuracy
                 </h3>
@@ -1725,7 +1717,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-col justify-between [padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="[padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Making Sense of Complex Data
                 </h3>
@@ -1762,7 +1754,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-col justify-between [padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="[padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Enhancing Security and Fraud Detection
                 </h3>
@@ -1801,7 +1793,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-col justify-between [padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="[padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Reducing Operational <br /> Costs
                 </h3>
@@ -1838,7 +1830,7 @@ export default function Home() {
                   </svg>
                 </div>
               </div>
-              <div className="flex flex-col justify-between [padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
+              <div className="[padding:_clamp(17px,2vw,42px)] border rounded-[24px] border-[#292C330F]">
                 <h3 className="text-[#000000D9] leading-[1.3]  font-normal [margin-bottom:_clamp(10px,2vw,55px)] [font-size:_clamp(8px,3vw,28px)]">
                   Personalizing Customer Experiences
                 </h3>
