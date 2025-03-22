@@ -1,24 +1,23 @@
 "use client";
-import React from "react";
-// import React, { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 // Import Swiper React components
-// import { Flowbite, Navbar } from "flowbite-react";
+import { Flowbite, Navbar } from "flowbite-react";
 import Link from "next/link";
 // Import Swiper styles
-// import Slider from "react-slick";
-// import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
+import Slider from "react-slick";
+import { Button, Checkbox, Label, Modal, TextInput } from "flowbite-react";
 
 // import required modules
-// import { Pagination } from "swiper/modules";
+import { Pagination } from "swiper/modules";
 
 export default function ComingSoon() {
   return (
     <>
       <main>
-        <section className="bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/coming-soon.gif')] overflow-auto py-[10px] md:py-[59px] px-[10px] md:px-[92px] bg-center bg-cover bg-no-repeat  xl:h-screen">
+        <section className="bg-[url('https://dcmedvectorstore.blob.core.windows.net/website-videos/coming-soon.gif')] overflow-auto py-[10px] md:py-[59px] px-[10px] md:px-[92px] bg-center bg-cover bg-no-repeat  h-screen">
           <div className="container px-[10px] h-full  mx-auto">
-            <div className="flex-wrap flex-row flex items-center justify-center h-full">
-              <div className="basis-full">
+            <div className="flex-wrap  relative bg-cooming overflow-hidden flex-row flex items-center justify-center h-full">
+              <div className="relative z-10">
                 <div className="text-center">
                   <svg
                     width={77}
@@ -48,11 +47,11 @@ export default function ComingSoon() {
                   </svg>
                 </div>
                 <div className="text-center">
-                  <h1 className="leading-normal">
-                    <span className="text-[#3A4447] block mb-[18px] text-[26px] md:text-[48px] leading-normal">
+                  <h1 className="leading-normal ">
+                    <span className="text-[#3A4447] block mb-[18px] [font-size:_clamp(15px,4vw,48px)] leading-normal">
                       Unlock the Future of Innovation
                     </span>
-                    <span className="text-[#000000] block text-[34px] md:text-[56px] mb-[30px] leading-normal">
+                    <span className="text-[#000000] block [font-size:_clamp(15px,4vw,48px)] mb-[30px] leading-normal">
                       Our AI Products & Tools Are Coming Soon!
                     </span>
                   </h1>
