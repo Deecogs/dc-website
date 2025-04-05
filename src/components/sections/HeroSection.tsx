@@ -49,7 +49,7 @@ const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
               <div className="flex items-center flex-wrap flex-row">
                 <div>
                   <img
-                    src="/image/Intelligent.png"
+                    src="/image/AI.svg"
                     className="max-w-full h-[26px] md:h-[40px] xl:h-[61px]"
                     alt="Intelligent Systems"
                   />
