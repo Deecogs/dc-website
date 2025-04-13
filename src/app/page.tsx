@@ -440,7 +440,7 @@ export default function Home() {
                               </p>
                             </div>
                             <div className="shrink-0">
-                              <Link href="/blog-page">
+                              <Link href="#">
                                 <img
                                   src="/image/arrow-btn.png"
                                   className="max-w-full [width:_clamp(26px,2vw,76px)]"
@@ -810,7 +810,7 @@ export default function Home() {
                               </p>
                             </div>
                             <div className="shrink-0">
-                              <Link href="/blog-page">
+                              <Link href="#">
                                 <img
                                   src="/image/arrow-btn.png"
                                   className="max-w-full [width:_clamp(26px,2vw,76px)]"
