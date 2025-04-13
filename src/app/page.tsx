@@ -1433,7 +1433,7 @@ export default function Home() {
                               cy="9.56958"
                               r="8.5"
                               stroke="white"
-                              stroke-opacity="0.6"
+                              strokeOpacity="0.6"
                             />
                             <defs>
                               <linearGradient
@@ -1444,8 +1444,8 @@ export default function Home() {
                                 y2="18.5696"
                                 gradientUnits="userSpaceOnUse"
                               >
-                                <stop stop-color="#F9763C" />
-                                <stop offset="1" stop-color="#934623" />
+                                <stop stopColor="#F9763C" />
+                                <stop offset="1" stopColor="#934623" />
                               </linearGradient>
                             </defs>
                           </svg>
@@ -1478,7 +1478,7 @@ export default function Home() {
                                 cy="9.56958"
                                 r="8.5"
                                 stroke="white"
-                                stroke-opacity="0.6"
+                                strokeOpacity="0.6"
                               />
                               <defs>
                                 <linearGradient
@@ -1489,8 +1489,8 @@ export default function Home() {
                                   y2="18.5696"
                                   gradientUnits="userSpaceOnUse"
                                 >
-                                  <stop stop-color="#F9763C" />
-                                  <stop offset="1" stop-color="#934623" />
+                                  <stop stopColor="#F9763C" />
+                                  <stop offset="1" stopColor="#934623" />
                                 </linearGradient>
                               </defs>
                             </svg>
@@ -1521,7 +1521,7 @@ export default function Home() {
                                 cy="9.56958"
                                 r="8.5"
                                 stroke="white"
-                                stroke-opacity="0.6"
+                                strokeOpacity="0.6"
                               />
                               <defs>
                                 <linearGradient
@@ -1532,8 +1532,8 @@ export default function Home() {
                                   y2="18.5696"
                                   gradientUnits="userSpaceOnUse"
                                 >
-                                  <stop stop-color="#F9763C" />
-                                  <stop offset="1" stop-color="#934623" />
+                                  <stop stopColor="#F9763C" />
+                                  <stop offset="1" stopColor="#934623" />
                                 </linearGradient>
                               </defs>
                             </svg>
@@ -1567,7 +1567,7 @@ export default function Home() {
                                 cy="9.56958"
                                 r="8.5"
                                 stroke="white"
-                                stroke-opacity="0.6"
+                                strokeOpacity="0.6"
                               />
                               <defs>
                                 <linearGradient
@@ -1578,8 +1578,8 @@ export default function Home() {
                                   y2="18.5696"
                                   gradientUnits="userSpaceOnUse"
                                 >
-                                  <stop stop-color="#F9763C" />
-                                  <stop offset="1" stop-color="#934623" />
+                                  <stop stopColor="#F9763C" />
+                                  <stop offset="1" stopColor="#934623" />
                                 </linearGradient>
                               </defs>
                             </svg>
@@ -1950,7 +1950,7 @@ export default function Home() {
             </div>
             <div className="text-center mt-[30px] lg:mt-[64px]">
               <Link
-                href="#"
+                href="/blog-page"
                 className="hover:bg-[#fe6623e3] [font-size:_clamp(8px,3vw,22px)] border border-[#fe6623] rounded-[32px] py-[8px] px-[26px] inline-block text-[#fe6623] hover:text-[#ffffffe6] "
               >
                 View more
