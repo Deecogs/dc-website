@@ -71,7 +71,6 @@ const SpecializeSection = ({ onBookDemo }: SpecializeSectionProps) => {
           </div>
         </div>
       </div>
-
     </section>
   );
 };
