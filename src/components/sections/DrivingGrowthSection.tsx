@@ -24,8 +24,8 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                       What Sets us Apart
                     </span>
                     <h2 className="[font-size:_clamp(16px,2vw,46px)] [padding-top:_clamp(8px,4vw,41px)] [padding-bottom:_clamp(20px,4vw,30px)] leading-[1.3] text-[#000]">
-                      Driving Growth and Shaping a{/* */}{" "}
-                      <span className="heading-orange">Smarter Future </span>{" "}
+                      Driving Growth and Shaping a{" "}
+                      <span className="heading-orange">Smarter Future </span>
                       for Our Clients
                     </h2>
                   </div>
@@ -35,8 +35,13 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                   </p>
                 </div>
                 <div className="grid grid-cols-2 place-items-stretch gap gap-x-[9px] gap-y-[8px] lg:gap-x-[32px]">
-                  <div className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
-                    isHovered ? "cardHover" : ""}`}>
+                  <div
+                    className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
+                      isHovered ? "cardHover" : ""
+                    }`}
+                    onMouseEnter={() => setIsHovered(true)}
+                    onMouseLeave={() => setIsHovered(false)}
+                  >
                     <div className="flex flex-row">
                       <div className="shrink-0">
                         <img
@@ -50,14 +55,18 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                           +10
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
-                          Empowering Businesses to unlock limitless
-                          possibilities & achieve unparalleled success.
+                          Empowering Businesses to unlock limitless possibilities & achieve unparalleled success.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
-                    isHoveredTwo ? "cardHover" : ""}`}>
+                  <div
+                    className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
+                      isHoveredTwo ? "cardHover" : ""
+                    }`}
+                    onMouseEnter={() => setIsHoveredTwo(true)}
+                    onMouseLeave={() => setIsHoveredTwo(false)}
+                  >
                     <div className="flex flex-row">
                       <div className="shrink-0">
                         <img
@@ -71,14 +80,18 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                           +5
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
-                          Successfully delivered impactful solutions globally,
-                          meeting diverse customer needs.
+                          Successfully delivered impactful solutions globally, meeting diverse customer needs.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
-                    isHoveredFour ? "cardHover" : ""}`}>
+                  <div
+                    className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 rounded-[24px] bg-[#292C3305] ${
+                      isHoveredFour ? "cardHover" : ""
+                    }`}
+                    onMouseEnter={() => setIsHoveredFour(true)}
+                    onMouseLeave={() => setIsHoveredFour(false)}
+                  >
                     <div className="flex flex-row">
                       <div className="shrink-0">
                         <img
@@ -92,14 +105,18 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                           +3
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
-                          Providing transformative AI solutions across
-                          healthcare, finance, fintech, defense, and security.
+                          Providing transformative AI solutions across healthcare, finance, fintech, defense, and security.
                         </p>
                       </div>
                     </div>
                   </div>
-                  <div className={`min-h-[120] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 flex flex-col justify-center rounded-[24px] bg-[#292C3305] ${
-                    isHoveredThree ? "cardHover" : ""}`}>
+                  <div
+                    className={`min-h-[120px] [padding:_clamp(13px,2vw,30px)] bordern-nn-1 flex flex-col justify-center rounded-[24px] bg-[#292C3305] ${
+                      isHoveredThree ? "cardHover" : ""
+                    }`}
+                    onMouseEnter={() => setIsHoveredThree(true)}
+                    onMouseLeave={() => setIsHoveredThree(false)}
+                  >
                     <div className="flex flex-row">
                       <div className="shrink-0">
                         <img
@@ -110,16 +127,15 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                       </div>
                       <div className="grow [padding-left:_clamp(12px,3vw,30px)]">
                         <p className="text-[#646464] text-[12px] leading-normal">
-                          Stay informed with our newsroom updates, delivering
-                          insights straight to you.
+                          Stay informed with our newsroom updates, delivering insights straight to you.
                         </p>
                       </div>
                     </div>
                   </div>
                 </div>
                 <div className="text-center md:text-start">
-                  
-                    <a className="bg-[#FE6623E3] leading-[1.2] [margin-top:_clamp(21px,2vw,80px)] [padding-left:_clamp(2px,2vw,20px)] [padding-right:_clamp(2px,2vw,20px)] [padding-top:_clamp(1px,2vw,7px)] [padding-bottom:_clamp(1px,2vw,7px)] [font-size:_clamp(8px,2vw,22px)] border border-[#FE6623] rounded-[32px] inline-block text-[#ffffffe6]"
+                  <a
+                    className="bg-[#FE6623E3] leading-[1.2] [margin-top:_clamp(21px,2vw,80px)] [padding-left:_clamp(2px,2vw,20px)] [padding-right:_clamp(2px,2vw,20px)] [padding-top:_clamp(1px,2vw,7px)] [padding-bottom:_clamp(1px,2vw,7px)] [font-size:_clamp(8px,2vw,22px)] border border-[#FE6623] rounded-[32px] inline-block text-[#ffffffe6]"
                     href="#"
                     onClick={onBookDemo}
                   >
@@ -129,14 +145,16 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
               </div>
               <div className="basis-full hidden md:block mt-[30px] md:mt-0 md:basis-6/12">
                 <div>
-                  <div className={`main-circle common-border ${
-                    isHovered ? "borderHover" : ""}`}>
+                  <div
+                    className={`main-circle common-border ${isHovered ? "borderHover" : ""}`}
+                  >
                     <div className="circle-4-1">
                       <div className="flex s4 items-center flex-wrap">
-                        <span 
-                          onMouseEnter={() => setIsHovered(true)} 
-                          onMouseLeave={() => setIsHovered(false)} 
-                          className="bg-[#004A7C40] btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]">
+                        <span
+                          onMouseEnter={() => setIsHovered(true)}
+                          onMouseLeave={() => setIsHovered(false)}
+                          className="bg-[#004A7C40] btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]"
+                        >
                           Growth
                         </span>
                         <span className="dot">
@@ -177,14 +195,14 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         </span>
                       </div>
                     </div>
-                    <div className={`circle-2 common-border ${
-                      isHoveredTwo ? "borderHover" : ""}`}>
+                    <div className={`circle-2 common-border ${isHoveredTwo ? "borderHover" : ""}`}>
                       <div className="circle-4-1">
                         <div className="flex s3 items-center flex-wrap">
-                          <span 
-                            onMouseEnter={() => setIsHoveredTwo(true)} 
-                            onMouseLeave={() => setIsHoveredTwo(false)} 
-                            className="bg-[#004A7C40] btn btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]">
+                          <span
+                            onMouseEnter={() => setIsHoveredTwo(true)}
+                            onMouseLeave={() => setIsHoveredTwo(false)}
+                            className="bg-[#004A7C40] btn btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]"
+                          >
                             Insights
                           </span>
                           <span className="dot">
@@ -226,8 +244,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         </div>
                       </div>
                     </div>
-                    <div className={`circle-3 common-border ${
-                      isHoveredFour ? "borderHover" : ""}`}>
+                    <div className={`circle-3 common-border ${isHoveredFour ? "borderHover" : ""}`}>
                       <div className="circle-4-1">
                         <div className="flex s2 items-center flex-wrap">
                           <span className="dot">
@@ -266,17 +283,17 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                               </defs>
                             </svg>
                           </span>
-                          <span 
-                            onMouseEnter={() => setIsHoveredFour(true)} 
-                            onMouseLeave={() => setIsHoveredFour(false)} 
-                            className="bg-[#004A7C40] btn btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]">
+                          <span
+                            onMouseEnter={() => setIsHoveredFour(true)}
+                            onMouseLeave={() => setIsHoveredFour(false)}
+                            className="bg-[#004A7C40] btn btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]"
+                          >
                             Industries
                           </span>
                         </div>
                       </div>
                     </div>
-                    <div className={`circle-4 common-border ${
-                      isHoveredThree ? "borderHover" : ""}`}>
+                    <div className={`circle-4 common-border ${isHoveredThree ? "borderHover" : ""}`}>
                       <div className="circle-4-1">
                         <div className="flex s1 items-center flex-wrap">
                           <span className="dot">
@@ -316,8 +333,8 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                             </svg>
                           </span>
                           <span
-                            onMouseEnter={() => setIsHoveredThree(true)} 
-                            onMouseLeave={() => setIsHoveredThree(false)} 
+                            onMouseEnter={() => setIsHoveredThree(true)}
+                            onMouseLeave={() => setIsHoveredThree(false)}
                             className="bg-[#004A7C40] btn btnhover mx-[12px] btn py-[3px] px-[15px] lg:py-[8px] lg:px-[30px] text-white [font-size:_clamp(15px,2vw,20px)] text-center rounded-[12px] border border-[#004A7C]"
                           >
                             Products

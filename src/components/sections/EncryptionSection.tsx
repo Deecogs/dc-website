@@ -15,11 +15,14 @@ const EncryptionSection = () => {
                 <span className="heading-orange">End-to-End</span> Encryption
               </h2>
             </div>
-            <div className="grid-cols-1 grid md:grid-cols-2 place-items-stretch [margin-top:_clamp(40px,2vw,107px)] gap-[16px] lg:gap-[32px] xl:gap-[64px]">
-              <div className="bg-[#FE66232E] items-center flex flex-row rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
+
+            {/* Updated grid to display two rows */}
+            <div className="grid grid-cols-2 gap-4 [margin-top:_clamp(40px,2vw,107px)]">
+              {/* Card 1 */}
+              <div className="bg-[#FE66232E] flex flex-row rounded-[12px] p-[10px] transition-all duration-300 ease-in-out hover:bg-[#FE6623] hover:text-white">
                 <div className="shrink-0">
                   <svg
-                    className="[height:_clamp(32px,2vw,79px)]"
+                    className="h-[40px]"
                     viewBox="0 0 63 80"
                     fill="none"
                     xmlns="http://www.w3.org/2000/svg"
@@ -31,70 +34,96 @@ const EncryptionSection = () => {
                     />
                   </svg>
                 </div>
-                <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
-                  <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
+                <div className="grow pl-[16px]">
+                  <h3 className="text-[#0E1A36] mb-[8px] text-[16px] leading-[1.3]">
                     Data Encryption & Storage
                   </h3>
-                  <p className="text-[#000000BF] [font-size:_clamp(10px,2vw,20px)] leading-[1.3]">
-                    We use data-encryption to protective sensitive data,
-                    ensuring compliance with international standards.
+                  <p className="text-[#000000BF] text-[12px] leading-[1.3]">
+                    We use data-encryption to protect sensitive data, ensuring compliance with international standards.
                   </p>
                 </div>
               </div>
-              <div className="bg-[#FE66232E] items-center flex flex-row rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
+
+              {/* Card 2 */}
+              <div className="bg-[#FE66232E] flex flex-row rounded-[12px] p-[10px] transition-all duration-300 ease-in-out hover:bg-[#FE6623] hover:text-white">
                 <div className="shrink-0">
-                  <svg className="[height:_clamp(32px,2vw,79px)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                  <svg
+                    className="h-[40px]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 384 512"
+                  >
                     <path d="M64 464c-8.8 0-16-7.2-16-16L48 64c0-8.8 7.2-16 16-16l160 0 0 80c0 17.7 14.3 32 32 32l80 0 0 288c0 8.8-7.2 16-16 16L64 464zM64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-293.5c0-17-6.7-33.3-18.7-45.3L274.7 18.7C262.7 6.7 246.5 0 229.5 0L64 0zm56 256c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0zm0 96c-13.3 0-24 10.7-24 24s10.7 24 24 24l144 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-144 0z"/>
                   </svg>
                 </div>
-                <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
-                  <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
+                <div className="grow pl-[16px]">
+                  <h3 className="text-[#0E1A36] mb-[8px] text-[16px] leading-[1.3]">
                     Policies and Consent
                   </h3>
-                  <p className="text-[#000000BF] [font-size:_clamp(10px,2vw,20px)] leading-[1.3]">
-                    We use data policies, obtain consent from the users and use
-                    anonymization for maximum privacy.
+                  <p className="text-[#000000BF] text-[12px] leading-[1.3]">
+                    We use data policies, obtain consent from users, and use anonymization for maximum privacy.
                   </p>
                 </div>
               </div>
-              <div className="bg-[#FE66232E] items-center flex flex-row rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
+
+              {/* Card 3 */}
+              <div className="bg-[#FE66232E] flex flex-row rounded-[12px] p-[10px] transition-all duration-300 ease-in-out hover:bg-[#FE6623] hover:text-white">
                 <div className="shrink-0">
-                  <svg className="[height:_clamp(32px,2vw,79px)]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+                  <svg
+                    className="h-[40px]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
+                  >
                     <path d="M64 64c0-17.7-14.3-32-32-32S0 46.3 0 64L0 400c0 44.2 35.8 80 80 80l400 0c17.7 0 32-14.3 32-32s-14.3-32-32-32L80 416c-8.8 0-16-7.2-16-16L64 64zm406.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L320 210.7l-57.4-57.4c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L240 221.3l57.4 57.4c12.5 12.5 32.8 12.5 45.3 0l128-128z"/>
                   </svg>
                 </div>
-                <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
-                  <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
+                <div className="grow pl-[16px]">
+                  <h3 className="text-[#0E1A36] mb-[8px] text-[16px] leading-[1.3]">
                     Real-Time Monitoring
                   </h3>
-                  <p className="text-[#000000BF] [font-size:_clamp(10px,2vw,20px)] leading-[1.3]">
-                    We have deployed AI monitoring to detect and neutralize
-                    real-time cyber threats and unauthorized access.
+                  <p className="text-[#000000BF] text-[12px] leading-[1.3]">
+                    We have deployed AI monitoring to detect and neutralize real-time cyber threats.
                   </p>
                 </div>
               </div>
-              <div className="bg-[#FE66232E] items-center flex flex-row rounded-[24px] [padding-top:_clamp(26px,3vw,48px)] [padding-bottom:_clamp(26px,3vw,48px)] [padding-left:_clamp(14px,3vw,65px)] [padding-right:_clamp(14px,3vw,65px)]">
+
+              {/* Card 4 */}
+              <div className="bg-[#FE66232E] flex flex-row rounded-[12px] p-[10px] transition-all duration-300 ease-in-out hover:bg-[#FE6623] hover:text-white">
                 <div className="shrink-0">
                   <svg
-                    className="[height:_clamp(32px,2vw,79px)]"
-                    viewBox="0 0 62 74"
-                    fill="none"
+                    className="h-[40px]"
                     xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 512 512"
                   >
-                    <path
-                      d="M31 73.3984C22.0229 71.2693 14.612 66.4178 8.76719 58.8441C2.9224 51.2703 0 42.8601 0 33.6134V11.3484L31 0.398438L62 11.3484V33.6134C62 42.8601 59.0776 51.2703 53.2328 58.8441C47.388 66.4178 39.9771 71.2693 31 73.3984ZM31 65.7334C37.7167 63.7259 43.2708 59.7109 47.6625 53.6884C52.0542 47.6659 54.25 40.9743 54.25 33.6134V16.3672L31 8.15469L7.75 16.3672V33.6134C7.75 40.9743 9.94583 47.6659 14.3375 53.6884C18.7292 59.7109 24.2833 63.7259 31 65.7334ZM23.25 51.4984H38.75C39.8479 51.4984 40.7682 51.1486 41.5109 50.4491C42.2536 49.7495 42.625 48.8826 42.625 47.8484V36.8984C42.625 35.8643 42.2536 34.9974 41.5109 34.2978C40.7682 33.5982 39.8479 33.2484 38.75 33.2484V29.5984C38.75 27.5909 37.9911 25.8724 36.4734 24.4428C34.9557 23.0132 33.1312 22.2984 31 22.2984C28.8687 22.2984 27.0443 23.0132 25.5266 24.4428C24.0089 25.8724 23.25 27.5909 23.25 29.5984V33.2484C22.1521 33.2484 21.2318 33.5982 20.4891 34.2978C19.7464 34.9974 19.375 35.8643 19.375 36.8984V47.8484C19.375 48.8826 19.7464 49.7495 20.4891 50.4491C21.2318 51.1486 22.1521 51.4984 23.25 51.4984ZM27.125 33.2484V29.5984C27.125 28.5643 27.4964 27.6974 28.2391 26.9978C28.9818 26.2982 29.9021 25.9484 31 25.9484C32.0979 25.9484 33.0182 26.2982 33.7609 26.9978C34.5036 27.6974 34.875 28.5643 34.875 29.5984V33.2484H27.125Z"
-                      fill="black"
-                      fillOpacity="0.85"
-                    />
+                    <path d="M509.1 247.7L394.5 133.1c-10.7-10.7-23.8-16.9-38.1-16.9H61.8c-14.3 0-27.4 6.2-38.1 16.9L2.9 247.7c-10.7 10.7-10.7 27.9 0 38.6L117.5 394.5c10.7 10.7 23.8 16.9 38.1 16.9h294.6c14.3 0 27.4-6.2 38.1-16.9L509.1 286.3c10.7-10.7 10.7-27.9 0-38.6zM314.1 357.3H197.9c-11.4 0-21.4-9.3-21.4-21.4s9.3-21.4 21.4-21.4h116.2c11.4 0 21.4 9.3 21.4 21.4s-9.3 21.4-21.4 21.4z"/>
                   </svg>
                 </div>
-                <div className="grow [padding-left:_clamp(15px,3vw,36px)]">
-                  <h3 className="text-[#0E1A36] mb-[11px] [font-size:_clamp(14px,2vw,32px)] leading-[1.3]">
-                    Access Control & Authentication
+                <div className="grow pl-[16px]">
+                  <h3 className="text-[#0E1A36] mb-[8px] text-[16px] leading-[1.3]">
+                    Secure Messaging
                   </h3>
-                  <p className="text-[#000000BF] [font-size:_clamp(10px,2vw,20px)] leading-[1.3]">
-                    Implementation of multi-factor authentication (MFA) and
-                    role-based access control (RBAC) for restricted access.
+                  <p className="text-[#000000BF] text-[12px] leading-[1.3]">
+                    All messages are securely encrypted end-to-end to prevent unauthorized access.
+                  </p>
+                </div>
+              </div>
+
+              {/* Card 5 */}
+              <div className="bg-[#FE66232E] flex flex-row rounded-[12px] p-[10px] transition-all duration-300 ease-in-out hover:bg-[#FE6623] hover:text-white">
+                <div className="shrink-0">
+                  <svg
+                    className="h-[40px]"
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 576 512"
+                  >
+                    <path d="M291.2 32C278.3 32 264.3 43.9 256.6 57.9C247.9 71.9 234.7 80 221.5 80H88C73.7 80 64 89.7 64 104V408C64 422.3 73.7 432 88 432H221.5C234.7 432 247.9 423.9 256.6 409.9C264.3 395.9 278.3 384 291.2 384C318.8 384 336 366.8 336 340C336 314.1 318.8 296 291.2 296C274.6 296 261.7 306.4 255.7 318.5C250.3 327.8 238.2 333.5 228.6 328.9C218.9 324.3 213.2 312.3 213.2 302.2V149.3L57.1 156.6C43.9 157.2 32 169.9 32 184.3C32 196.3 40.9 207.8 54.6 211.3L216.2 278.6L157.9 319.7C143.2 329.6 143.1 350.2 155.9 358.9C168.8 367.5 189.6 357.8 192.9 346.1L245.2 318.7C246.8 316.6 249.9 314.9 252.4 313.8C254.4 312.9 257.3 312.7 259.9 313.3L420.7 347.9C426.1 349.5 432.4 347.2 436.3 343.1C440.1 339.1 441.6 332.5 441.6 325.5C441.6 321.9 438.7 317.5 435.3 315.2C432.7 312.6 424.5 312.2 416.3 314.4L337.9 327.5L306.2 299.8C311.2 292.6 316.9 282.9 321.4 272.1C332.7 248.8 328.6 225.1 316.8 207.9C303.5 188.3 285.1 176 259.9 176C231.5 176 207.8 192.9 191.5 211.3C169.2 238.3 164.4 257.6 168.4 281.2L368 281.3C370.1 281.3 372.4 281.8 374.1 283.1L512 443C524.8 460.6 522.7 482.7 508.4 496.4C494.1 510.2 473 507.7 455.8 489.2L291.2 32Z"/>
+                  </svg>
+                </div>
+                <div className="grow pl-[16px]">
+                  <h3 className="text-[#0E1A36] mb-[8px] text-[16px] leading-[1.3]">
+                    Secure Cloud
+                  </h3>
+                  <p className="text-[#000000BF] text-[12px] leading-[1.3]">
+                    We store all your files securely in the cloud with encryption ensuring maximum data protection.
                   </p>
                 </div>
               </div>
@@ -102,11 +131,6 @@ const EncryptionSection = () => {
           </div>
         </div>
       </div>
-      <img
-        src="/image/shp-1.png"
-        className="w-full max-w-[350px] hidden lg:block absolute left-0 -top-[550px]"
-        alt=""
-      />
     </section>
   );
 };
