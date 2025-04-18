@@ -1,7 +1,8 @@
-// src/components/common/ContactModal.tsx
+// Fix for src/components/common/ContactModal.tsx
 import React, { useState } from "react";
-import { Button, Modal } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "@/components/common/Button";
 
 interface ContactModalProps {
   openModal: boolean;
@@ -108,10 +109,10 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
   return (
     <Modal
       show={openModal}
-      size="l" // Changed to medium size for half-screen effect
+      size="l"
       popup
       onClose={() => setOpenModal(false)}
-      className="bg-black/50 backdrop-blur-sm max-w-screen-md mx-auto" // Added max-width and centered
+      className="bg-black/50 backdrop-blur-sm max-w-screen-md mx-auto"
     >
       <Modal.Header className="border-b border-gray-200/10" />
 
@@ -122,7 +123,7 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
           animate="visible"
           exit="exit"
           variants={modalVariants}
-          className="relative px-6 lg:px-10 py-8" // Adjusted padding for half-screen
+          className="relative px-6 lg:px-10 py-8 max-h-[90vh] overflow-y-auto" // Added max-height and overflow
         >
           {submitSuccess ? (
             <motion.div 
@@ -180,7 +181,7 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
             >
               <div className="w-full">
                 <motion.h3 
-                  className="text-black text-2xl lg:text-3xl leading-tight mb-6"
+                  className="text-black text-xl lg:text-2xl leading-tight mb-6"
                   variants={itemVariants}
                 >
                   <span className="heading-orange block mb-2">
@@ -190,7 +191,7 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
                 </motion.h3>
 
                 <form className="mt-6" onSubmit={handleSubmit}>
-                  <div className="grid grid-cols-1 gap-6">
+                  <div className="grid grid-cols-1 gap-4">
                     {/* Name Input */}
                     <motion.div 
                       variants={itemVariants}
@@ -209,17 +210,16 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
                         onChange={handleChange}
                         onFocus={() => handleFocus('name')}
                         onBlur={() => handleBlur('name')}
-                        className="block w-full px-0 py-3 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
+                        className="block w-full px-0 py-2 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
                         placeholder=" "
                         required
                       />
                       <label 
                         htmlFor="floating_name"
-                        className={`absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FE6623] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
+                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       >
                         Your Name
                       </label>
-                      {/* Added visible helper text */}
                       <span className="text-gray-500 text-xs mt-1 block">Enter your full name</span>
                     </motion.div>
                     
@@ -241,17 +241,16 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
                         onChange={handleChange}
                         onFocus={() => handleFocus('email')}
                         onBlur={() => handleBlur('email')}
-                        className="block w-full px-0 py-3 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
+                        className="block w-full px-0 py-2 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
                         placeholder=" "
                         required
                       />
                       <label 
                         htmlFor="floating_email"
-                        className={`absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FE6623] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
+                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       >
                         Email Address
                       </label>
-                      {/* Added visible helper text */}
                       <span className="text-gray-500 text-xs mt-1 block">We'll never share your email</span>
                     </motion.div>
                     
@@ -273,16 +272,15 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
                         onChange={handleChange}
                         onFocus={() => handleFocus('phone')}
                         onBlur={() => handleBlur('phone')}
-                        className="block w-full px-0 py-3 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
+                        className="block w-full px-0 py-2 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
                         placeholder=" "
                       />
                       <label 
                         htmlFor="floating_phone"
-                        className={`absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FE6623] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
+                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       >
                         Phone Number (optional)
                       </label>
-                      {/* Added visible helper text */}
                       <span className="text-gray-500 text-xs mt-1 block">Optional contact number</span>
                     </motion.div>
                     
@@ -303,54 +301,33 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
                         onChange={handleChange}
                         onFocus={() => handleFocus('message')}
                         onBlur={() => handleBlur('message')}
-                        className="block min-h-[120px] w-full px-0 py-3 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
+                        className="block min-h-[100px] w-full px-0 py-2 text-black bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-[#FE6623] peer"
                         placeholder=" "
                         required
                       ></textarea>
                       <label 
                         htmlFor="floating_message"
-                        className={`absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-[#FE6623] peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6`}
+                        className="absolute text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-primary peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                       >
                         Message
                       </label>
-                      {/* Added visible helper text */}
                       <span className="text-gray-500 text-xs mt-1 block">Tell us how we can help you</span>
                     </motion.div>
 
                     {/* Submit Button */}
                     <motion.div 
-                      className="mt-6 text-center"
+                      className="mt-4 text-center"
                       variants={itemVariants}
                     >
-                      <motion.button 
-                        type="submit"
-                        className="bg-[#fe6623] hover:bg-[#fe6623]/90 border-0 transition-all duration-300 rounded-full text-lg py-3 px-12 text-white relative overflow-hidden"
-                        whileHover={{ 
-                          scale: 1.03,
-                          boxShadow: "0 10px 15px -3px rgba(254, 102, 35, 0.2), 0 4px 6px -2px rgba(254, 102, 35, 0.1)"
-                        }}
-                        whileTap={{ scale: 0.97 }}
-                        disabled={isSubmitting}
-                      >
-                        <motion.span
-                          className="absolute inset-0 bg-white/20"
-                          initial={{ x: "-100%" }}
-                          whileHover={{ x: "100%" }}
-                          transition={{ duration: 0.5 }}
+                      <Button
+                          text={isSubmitting ? "Sending..." : "Send Message"}
+                          variant="primary"
+                          size="md"
+                          type="submit"
+                          loading={isSubmitting}
+                          disabled={isSubmitting}
+                          className="w-full md:w-auto"
                         />
-                        
-                        {isSubmitting ? (
-                          <div className="flex items-center justify-center">
-                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                              <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                            Sending...
-                          </div>
-                        ) : (
-                          <span>Send Message</span>
-                        )}
-                      </motion.button>
                     </motion.div>
                   </div>
                 </form>
@@ -360,7 +337,7 @@ const ContactModal = ({ openModal, setOpenModal }: ContactModalProps) => {
           
           {/* Background decoration - made smaller for half-screen modal */}
           <motion.div 
-            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full max-w-[300px]"
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 -z-10 w-full max-w-[200px] opacity-10"
             initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
             animate={{ 
               opacity: 0.08,
