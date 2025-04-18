@@ -225,7 +225,7 @@ const CollaboratorsSection = () => {
                   <p className="text-gray-600 italic">
                     "Partnering with DeeCogs has opened new horizons for our business. Their AI solutions have truly transformed our operations."
                   </p>
-                  <p className="text-gray-700 font-medium mt-2">- Partner Company CEO</p>
+                  <p className="text-gray-700 font-medium mt-2">- Partner Company</p>
                 </motion.div>
                 
                 <motion.div
@@ -253,11 +253,11 @@ const CollaboratorsSection = () => {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3 className="text-2xl font-normal text-center mb-8">
+              {/* <h3 className="text-2xl font-normal text-center mb-8">
                 The Power of <span className="heading-orange">Collaboration</span>
-              </h3>
+              </h3> */}
               
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                 {[
                   { number: "15+", label: "Global Partners" },
                   { number: "30+", label: "Joint Projects" },
@@ -288,7 +288,7 @@ const CollaboratorsSection = () => {
                     <div className="text-gray-600">{stat.label}</div>
                   </motion.div>
                 ))}
-              </div>
+              </div> */}
             </motion.div>
           </div>
         </motion.div>
