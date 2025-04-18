@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Navbar } from "flowbite-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
+import Button from "@/components/common/Button";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -17,19 +18,19 @@ const Header = () => {
       path: "/products",
       dropdown: [
         { name: "Docurate", path: "/products/docurate" },
-        { name: "VisionTech", path: "/products/visiontech" },
-        { name: "Fusio", path: "/products/fusio" },
-        { name: "Rae", path: "/products/rae" },
-        { name: "Notei", path: "/products/notei" }
+        { name: "VisionTech", path: "/coming-soon/visiontech" },
+        { name: "Fusio", path: "/coming-soon/fusio" },
+        { name: "Rae", path: "/coming-soon/rae" },
+        { name: "Notei", path: "/coming-soon/notei" }
       ]
     },
     { 
       name: "Solutions", 
       path: "/solutions",
       dropdown: [
-        { name: "Healthcare", path: "/solutions/healthcare" },
-        { name: "Finance", path: "/solutions/finance" },
-        { name: "Retail", path: "/solutions/retail" },
+        { name: "Healthcare", path: "/coming-soon/healthcare" },
+        { name: "Finance", path: "/coming-soon/finance" },
+        { name: "Retail", path: "/coming-soon/retail" },
         { name: "Manufacturing", path: "/solutions/manufacturing" }
       ]
     },
@@ -37,18 +38,18 @@ const Header = () => {
       name: "Developers", 
       path: "/developers",
       dropdown: [
-        { name: "Documentation", path: "/developers/docs" },
-        { name: "API References", path: "/developers/api" },
-        { name: "SDK", path: "/developers/sdk" }
+        { name: "Documentation", path: "/coming-soon/docs" },
+        { name: "API References", path: "/coming-soon/api" },
+        { name: "SDK", path: "/coming-soon/sdk" }
       ]
     },
     { 
       name: "Resources", 
       path: "/resources",
       dropdown: [
-        { name: "Blog", path: "/resources/blog" },
-        { name: "Case Studies", path: "/resources/case-studies" },
-        { name: "Whitepapers", path: "/resources/whitepapers" }
+        { name: "Blog", path: "/blog" },
+        { name: "Case Studies", path: "/coming-soon/case-studies" },
+        { name: "Whitepapers", path: "/coming-soon/whitepapers" }
       ]
     },
     { 
@@ -59,7 +60,7 @@ const Header = () => {
         { name: "Careers", path: "/company/careers" },
         { name: "Contact", path: "/company/contact" }
       ]
-    }
+    },
   ];
   
   useEffect(() => {
@@ -85,7 +86,11 @@ const Header = () => {
 
   return (
     <motion.header 
-      className={`fixed w-full z-50 transition-all duration-300 ${scrolled ? 'bg-black/60 backdrop-blur-md py-2 shadow-lg' : 'bg-transparent py-4'}`}
+      className={`fixed w-full z-[100] transition-all duration-300 ${
+        scrolled 
+          ? 'bg-black/60 backdrop-blur-md py-2 shadow-lg' 
+          : 'bg-black/20 backdrop-blur-sm py-4'
+      }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
@@ -118,7 +123,7 @@ const Header = () => {
                 >
                   <Link 
                     href={item.path}
-                    className="text-white hover:text-[#FE6623] transition-colors font-normal text-base py-2 flex items-center"
+                    className="text-white hover:text-primary transition-colors font-normal text-base py-2 flex items-center"
                   >
                     {item.name}
                     <motion.svg 
@@ -134,7 +139,7 @@ const Header = () => {
                     </motion.svg>
                   </Link>
                 
-                  {/* Dropdown Menu (Desktop) - FIXED POSITIONING */}
+                  {/* Dropdown Menu (Desktop) */}
                   <AnimatePresence>
                     {activeDropdown === index && (
                       <motion.div 
@@ -172,25 +177,21 @@ const Header = () => {
             ))}
             
             <div className="ml-6 flex items-center space-x-4">
-              <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-              >
-                <Link
-                  href="/login"
-                  className="text-white font-normal text-base border border-[#fe6623] py-2 px-6 rounded-full hover:bg-[#fe6623] transition-all duration-300"
-                >
-                  Login
-                </Link>
-              </motion.div>
+              <Button
+                text="Login"
+                variant="outline"
+                size="sm"
+                href="/login"
+                className="text-white border-white hover:bg-primary hover:border-primary px-10"
+              />
             </div>
           </div>
           
           {/* Mobile Menu Toggle */}
-          <div className="xl:hidden">
+          <div className="xl:hidden ml-auto z-[100]">
             <button 
               onClick={handleMobileMenuToggle}
-              className="text-white focus:outline-none"
+              className="text-white focus:outline-none p-2"
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
@@ -209,14 +210,26 @@ const Header = () => {
           <AnimatePresence>
             {isMobileMenuOpen && (
               <motion.div
-                className="xl:hidden fixed top-[70px] right-0 bottom-0 left-0 bg-black/90 z-50"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.3 }}
+              className="xl:hidden fixed inset-0 w-screen h-screen bg-black/90 z-[9999] overflow-hidden"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
               >
+                {/* Close button */}
+                <motion.button
+                  className="absolute top-6 right-6 text-white p-2 z-[10000]"
+                  onClick={handleMobileMenuToggle}
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                  </svg>
+                </motion.button>
+                
                 <motion.ul
-                  className="flex flex-col p-4 text-base w-full mt-4 items-start space-y-6 h-full overflow-y-auto"
+                  className="flex flex-col p-6 pt-20 text-base w-full items-start space-y-6 h-full overflow-y-auto"
                   initial={{ x: 100, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   exit={{ x: 100, opacity: 0 }}
@@ -233,7 +246,7 @@ const Header = () => {
                       <div>
                         <button
                           onClick={() => toggleDropdown(index)}
-                          className="text-white hover:text-[#FE6623] transition-colors font-normal flex items-center justify-between w-full py-2"
+                          className="text-white hover:text-primary transition-colors font-normal flex items-center justify-between w-full py-2"
                         >
                           {item.name}
                           <motion.svg 
@@ -253,7 +266,7 @@ const Header = () => {
                         <AnimatePresence>
                           {activeDropdown === index && (
                             <motion.div 
-                              className="mt-2 pl-4 space-y-2"
+                              className="mt-2 pl-4 space-y-2 bg-white/10 rounded-lg p-3"
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
@@ -268,7 +281,7 @@ const Header = () => {
                                 >
                                   <Link
                                     href={dropdownItem.path}
-                                    className="block py-2 text-sm text-gray-300 hover:text-[#FE6623]"
+                                    className="block py-2 text-sm text-white hover:text-primary transition-colors"
                                     onClick={handleMobileMenuToggle}
                                   >
                                     {dropdownItem.name}
