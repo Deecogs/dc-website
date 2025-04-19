@@ -1,13 +1,14 @@
+// src/app/products/docurate/page.tsx
 "use client";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { motion, useAnimation } from "framer-motion";
 import Link from "next/link";
-import Image from "next/image";
 import Header from "@/components/common/Header";
 import Footer from "@/components/common/Footer";
 import { Flowbite } from "flowbite-react";
 import { customTheme } from "@/utils/theme";
-
+import StreamlinedWorkflowSection from "@/components/sections/StreamlinedWorkflowSection";
+import ContactModal from "@/components/common/ContactModal";
 const DocuratePage = () => {
   const controls = useAnimation();
   
@@ -26,7 +27,7 @@ const DocuratePage = () => {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 }
   };
-
+  const [openModal, setOpenModal] = useState(false);
   return (
     <Flowbite theme={{ theme: customTheme }}>
       <Header />
@@ -56,6 +57,7 @@ const DocuratePage = () => {
                     className="bg-[#FE6623] text-white py-3 px-8 rounded-full font-medium hover:bg-[#FE6623]/90 transition-all duration-300"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
+                    onClick={() => setOpenModal(true)}
                   >
                     Book a Demo
                   </motion.button>
@@ -79,7 +81,8 @@ const DocuratePage = () => {
                   <img 
                     src="/image/products/docurate-hero.png" 
                     alt="Docurate Platform Interface" 
-                    // className="w-full rounded-lg shadow-xl"
+                    width="100%"
+                    height="auto"
                   />
                 </div>
               </motion.div>
@@ -92,9 +95,10 @@ const DocuratePage = () => {
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeIn}
               transition={{ duration: 0.6 }}
             >
               <span className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000] inline-block mb-4">
@@ -159,10 +163,11 @@ const DocuratePage = () => {
                 <motion.div 
                   key={feature.title}
                   className="bg-gray-50 rounded-xl p-6 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                  variants={fadeIn}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ y: -5 }}
                 >
                   <div className="text-4xl mb-4">{feature.icon}</div>
@@ -179,9 +184,10 @@ const DocuratePage = () => {
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeIn}
               transition={{ duration: 0.6 }}
             >
               <span className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000] inline-block mb-4">
@@ -231,14 +237,21 @@ const DocuratePage = () => {
                 <motion.div 
                   key={useCase.title}
                   className="bg-white rounded-xl p-8 shadow hover:shadow-lg transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                  variants={fadeIn}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ y: -5 }}
                 >
                   <div className="mb-6 h-16 flex items-center justify-center">
-                    <img src={useCase.icon} alt={useCase.title} className="h-full object-contain" />
+                    <img 
+                      src={useCase.icon} 
+                      alt={useCase.title} 
+                      className="h-full object-contain"
+                      width="64"
+                      height="64"
+                    />
                   </div>
                   <h3 className="text-xl font-bold mb-3 text-center">{useCase.title}</h3>
                   <p className="text-gray-600 text-center">{useCase.description}</p>
@@ -248,216 +261,18 @@ const DocuratePage = () => {
           </div>
         </section>
         
-        {/* Workflow Section */}
-        <section className="py-20 bg-white">
-          <div className="container mx-auto px-4">
-            <motion.div 
-              className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000] inline-block mb-4">
-                How It Works
-              </span>
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">
-                <span className="heading-orange">Streamlined</span> Workflow
-              </h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Experience a seamless document processing journey from upload to validation.
-              </p>
-            </motion.div>
-            
-            <div className="space-y-16">
-              <div className="flex flex-col lg:flex-row items-center gap-12">
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="bg-gray-100 p-4 rounded-xl">
-                    <img 
-                      src="/image/products/docurate-step1.png" 
-                      alt="Create New Project" 
-                      className="w-full rounded-lg shadow-md"
-                    />
-                  </div>
-                </motion.div>
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="inline-block bg-[#FE6623] text-white text-lg font-bold px-4 py-1 rounded-full mb-4">Step 1</div>
-                  <h3 className="text-2xl font-bold mb-4">Create New Project</h3>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Add project name and select document type</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Upload documents – supports both single and bulk uploads</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Assign validators to the project</p>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-              
-              <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="bg-gray-100 p-4 rounded-xl">
-                    <img 
-                      src="/image/products/docurate-step2.png" 
-                      alt="Access Project Dashboard" 
-                      className="w-full rounded-lg shadow-md"
-                    />
-                  </div>
-                </motion.div>
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="inline-block bg-[#FE6623] text-white text-lg font-bold px-4 py-1 rounded-full mb-4">Step 2</div>
-                  <h3 className="text-2xl font-bold mb-4">Access Project Dashboard</h3>
-                  <p className="text-gray-700 mb-4">
-                    A centralized dashboard provides a complete overview of all projects and documents with real-time status updates.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Monitor project progress and document status</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Track validation accuracy and AI performance</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Review documents requiring manual attention</p>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-              
-              <div className="flex flex-col lg:flex-row items-center gap-12">
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="bg-gray-100 p-4 rounded-xl">
-                    <img 
-                      src="/image/products/docurate-step3.png" 
-                      alt="Preview Documents" 
-                      className="w-full rounded-lg shadow-md"
-                    />
-                  </div>
-                </motion.div>
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="inline-block bg-[#FE6623] text-white text-lg font-bold px-4 py-1 rounded-full mb-4">Step 3</div>
-                  <h3 className="text-2xl font-bold mb-4">Preview Documents</h3>
-                  <p className="text-gray-700 mb-4">
-                    Review processed documents with extracted data and validation status.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>See document details including type, progress, upload date, and validation date</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Check assignee information and AI accuracy percentage</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Review auto-action validation results and make adjustment decisions</p>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-              
-              <div className="flex flex-col lg:flex-row-reverse items-center gap-12">
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: 30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="bg-gray-100 p-4 rounded-xl">
-                    <img 
-                      src="/image/products/docurate-step4.png" 
-                      alt="Edit Documents" 
-                      className="w-full rounded-lg shadow-md"
-                    />
-                  </div>
-                </motion.div>
-                <motion.div 
-                  className="lg:w-1/2"
-                  initial={{ opacity: 0, x: -30 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.6 }}
-                >
-                  <div className="inline-block bg-[#FE6623] text-white text-lg font-bold px-4 py-1 rounded-full mb-4">Step 4</div>
-                  <h3 className="text-2xl font-bold mb-4">Edit Documents</h3>
-                  <p className="text-gray-700 mb-4">
-                    Make corrections and validate document data with an intuitive editing interface.
-                  </p>
-                  <ul className="space-y-3">
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>View project details and verification status</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Edit and correct OCR data with the interactive canvas</p>
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <div className="text-primary font-bold mt-1">•</div>
-                      <p>Access other documents in the same project for cross-reference</p>
-                    </li>
-                  </ul>
-                </motion.div>
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* Streamlined Workflow Section (New Component) */}
+        <StreamlinedWorkflowSection />
         
         {/* Benefits Section */}
         <section className="py-20 bg-gray-50">
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center mb-16"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeIn}
               transition={{ duration: 0.6 }}
             >
               <span className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000] inline-block mb-4">
@@ -504,10 +319,11 @@ const DocuratePage = () => {
                 <motion.div 
                   key={benefit.title}
                   className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-all duration-300"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: true, amount: 0.1 }}
+                  variants={fadeIn}
+                  transition={{ duration: 0.5, delay: index * 0.05 }}
                   whileHover={{ y: -5 }}
                 >
                   <div className="text-4xl mb-4">{benefit.icon}</div>
@@ -524,9 +340,10 @@ const DocuratePage = () => {
           <div className="container mx-auto px-4">
             <motion.div 
               className="text-center max-w-3xl mx-auto"
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, amount: 0.1 }}
+              variants={fadeIn}
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold mb-6">
@@ -537,19 +354,21 @@ const DocuratePage = () => {
               </p>
               <div className="flex flex-wrap gap-4 justify-center">
                 <motion.button
-                  className="bg-[#FE6623] text-white py-3 px-8 rounded-full font-medium hover:bg-[#FE6623]/90 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Schedule a Demo
-                </motion.button>
+                    className="bg-[#FE6623] text-white py-3 px-8 rounded-full font-medium hover:bg-[#FE6623]/90 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    onClick={() => setOpenModal(true)}
+                  >
+                    Schedule a Demo
+                  </motion.button>
                 <motion.button
-                  className="border-2 border-[#FE6623] text-primary py-3 px-8 rounded-full font-medium hover:bg-[#FE6623]/10 transition-all duration-300"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  Contact Sales
+                    className="border-2 border-[#FE6623] text-primary py-3 px-8 rounded-full font-medium hover:bg-[#FE6623]/10 transition-all duration-300"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Link href="/company/contact">Contact Sales</Link>
                 </motion.button>
+                <ContactModal openModal={openModal} setOpenModal={setOpenModal} />
               </div>
             </motion.div>
           </div>
