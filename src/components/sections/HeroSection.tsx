@@ -147,7 +147,7 @@ const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
               <div className="hidden md:block h-14 w-px bg-white/30 mx-2"></div>
               
               <motion.a 
-                href="#explore" 
+                href="#solutions" 
                 className="text-white group flex items-center gap-2"
                 whileHover={{ x: 5 }}
                 transition={{ type: "spring", stiffness: 300 }}
