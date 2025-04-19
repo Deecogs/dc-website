@@ -46,13 +46,13 @@ const LoginPage = () => {
     <Flowbite theme={{ theme: customTheme }}>
       <Header />
       
-      <main className="pt-32 pb-20 min-h-[80vh]">
-        <div className="container max-w-md mx-auto px-4">
+      <main className="flex items-center justify-center py-20" style={{ minHeight: "calc(100vh - 200px)" }}>
+        <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="bg-white rounded-xl shadow-lg p-8"
+            className="bg-white rounded-xl shadow-lg p-8 max-w-md mx-auto"
           >
             <div className="text-center mb-8">
               <h1 className="text-3xl font-normal mb-2">
@@ -141,9 +141,9 @@ const LoginPage = () => {
             <div className="mt-8 text-center">
               <p className="text-gray-600">
                 Don't have an account? Contact us @{" "}
-                <div className="text-primary hover:underline">
+                <a href="mailto:business@deecogs.com" className="text-primary hover:underline">
                   business@deecogs.com
-                </div>
+                </a>
               </p>
             </div>
             
