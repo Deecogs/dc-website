@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from "react";
 import { motion, useInView, useAnimation } from "framer-motion";
 
-const SmartNoteTabSection = () => {
+interface SmartNoteTabSectionProps {
+  onBookDemo: () => void;
+}
+const SmartNoteTabSection = ({ onBookDemo }: SmartNoteTabSectionProps) => {
   const controls = useAnimation();
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, amount: 0.3 });
@@ -144,10 +147,11 @@ const SmartNoteTabSection = () => {
                 variants={itemVariants}
               >
                 <motion.button
-                  className="relative overflow-hidden bg-[#FE6623] text-white py-3 px-8 rounded-full inline-flex items-center shadow-lg hover:shadow-xl"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.98 }}
-                >
+                    className="relative overflow-hidden bg-[#FE6623] text-white py-3 px-8 rounded-full inline-flex items-center shadow-lg hover:shadow-xl"
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={onBookDemo}
+                  >
                   <motion.span 
                     className="absolute inset-0 bg-white/20"
                     initial={{ x: "-100%" }}
