@@ -13,19 +13,25 @@ const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
       src: "/image/our-collaborators-1.jpeg",
       alt: "Collaborator 1",
       maxWidth: "clamp(48px, 10vw, 128px)",
-      name: "Partner One"
+      // name: "Partner One"
     },
     {
       src: "/image/our-collaborators-2.jpeg",
       alt: "Collaborator 2", 
       maxWidth: "clamp(48px, 10vw, 130px)",
-      name: "Partner Two"
+      // name: "Partner Two"
     },
     {
       src: "/image/our-collaborators-3.png",
       alt: "Collaborator 3",
       maxWidth: "clamp(48px, 10vw, 80px)",
-      name: "Partner Three"
+      // name: "Partner Three"
+    },
+    {
+      src: "/image/nectworks.png",
+      alt: "Collaborator 3",
+      maxWidth: "clamp(68px, 20vw, 170px)",
+      // name: "Partner Three"
     }
   ];
 
