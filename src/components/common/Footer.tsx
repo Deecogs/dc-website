@@ -226,7 +226,8 @@ const Footer = () => {
                   variants={fadeInUp}
                   className="mb-8"
                 >
-                  <h2 className="[font-size:_clamp(12px,2vw,20px)] font-bold mb-[12px] lg:mb-[36px] text-[#0000009c] relative">
+                  {/* <h2 className="[font-size:_clamp(12px,2vw,20px)] font-bold mb-[12px] lg:mb-[36px] text-[#0000009c] relative"> */}
+                  <h2 className="text-lg lg:text-xl font-bold mb-[15px] lg:mb-[46px] text-[#0000009c]">
                     {column.title}
                     <motion.span
                       className="absolute -bottom-2 left-0 h-[2px] bg-[#FE6623]/50"
@@ -249,7 +250,8 @@ const Footer = () => {
                       >
                         <Link
                           href={link.href}
-                          className="text-[#707070] [font-size:_clamp(10px,2vw,16px)] hover:text-primary transition-colors duration-300 flex items-center"
+                          // className="text-[#707070] [font-size:_clamp(10px,2vw,16px)] hover:text-primary transition-colors duration-300 flex items-center"
+                          className="text-[#707070] text-sm lg:text-base"
                         >
                           <motion.span 
                             className="w-0 h-[1px] bg-[#FE6623] mr-0 opacity-0"
@@ -277,62 +279,59 @@ const Footer = () => {
         </motion.div>
         
         {/* Subscribe Section */}
-        <motion.div 
-          className="flex flex-wrap mt-[30px] lg:mt-[0px] mb-[30px] lg:mb-[58px] flex-row items-end"
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <div className="basis-full pe-[15px] lg:basis-6/12">
-            <motion.div 
-              className="max-w-[556px]"
-              variants={pulseAnimation}
-              initial="initial"
-              animate="animate"
+        <div 
+  className="flex flex-wrap mt-[30px] lg:mt-[0px] mb-[30px] lg:mb-[58px] flex-row items-end"
+>
+  <div className="basis-full pe-[15px] lg:basis-6/12">
+    <div className="max-w-[556px]">
+      <span className="text-[#0000008a] font-normal [font-size:_clamp(12px,2vw,24px)]">
+        For Latest Insights
+      </span>
+      <h3 className="text-[#000000] font-normal leading-[1.3] [font-size:_clamp(16px,2vw,26px)]">
+        Subscribe for Updates.
+      </h3>
+      <form className="mt-[20px] lg:mt-[40px]">
+        <div className="w-full group relative">
+          <input
+            type="email"
+            name="email"
+            id="floating_email"
+            className="block pe-[35px] py-3 px-0 w-full text-[#000] bg-transparent border-0 border-b-2 border-p[#000000bf] appearance-none focus:outline-none focus:ring-0 placeholder:font-light placeholder:text-[#000000bf] text-[20px] focus:border-[#FE6623E3] peer"
+            placeholder="Enter your email address.."
+            required
+          />
+          <button
+            type="submit"
+            className="absolute right-0 top-1/2 -translate-y-1/2 text-primary hover:text-[#FE6623E3] transition-colors"
+          >
+            <svg 
+              width="24" 
+              height="24" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
             >
-              <span className="text-[#0000008a] font-normal [font-size:_clamp(12px,2vw,24px)]">
-                For Latest Insights
-              </span>
-              <h3 className="text-[#000000] font-normal leading-[1.3] [font-size:_clamp(16px,2vw,26px)]">
-                Subscribe for Updates.
-              </h3>
-              <form className="mt-[20px] lg:mt-[40px]">
-                <div className="w-full group relative">
-                  <motion.input
-                    type="email"
-                    name="email"
-                    id="floating_email"
-                    className="block arrow-bg-input pe-[35px] bg-no-repeat py-3 px-0 w-full text-[#000] bg-transparent border-0 border-b-2 border-p[#000000bf] appearance-none focus:outline-none focus:ring-0 placeholder:font-light placeholder:text-[#000000bf] text-[20px] focus:border-[#FE6623E3] peer"
-                    placeholder="Enter your email address.."
-                    required
-                    whileFocus={{ 
-                      borderColor: "#FE6623", 
-                      transition: { duration: 0.3 } 
-                    }}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ duration: 0.5, delay: 0.2 }}
-                  />
-                  <motion.button
-                    type="submit"
-                    className="absolute right-0 top-1/2 -translate-y-1/2 text-primary hover:text-[#FE6623E3] transition-colors"
-                    whileHover={{ scale: 1.1, x: 5 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 0.3 }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M2 12L22 12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                      <path d="M15 5L22 12L15 19" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                    </svg>
-                  </motion.button>
-                </div>
-              </form>
-            </motion.div>
-          </div>
-        </motion.div>
+              <path 
+                d="M14 5l7 7-7 7" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+              <path 
+                d="M21 12H3" 
+                stroke="currentColor" 
+                strokeWidth="2" 
+                strokeLinecap="round" 
+                strokeLinejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
         
         {/* Footer Bottom Section */}
         <motion.div
@@ -390,15 +389,15 @@ const Footer = () => {
       </div>
       
       {/* Footer Decoration */}
-      <motion.img
-        src="/image/footer-shape.png"
-        className="absolute max-w-[315px] md:max-w-[1280px] right-0 bottom-0 z-0"
+      {/* <motion.img
+        src="/image/gradient.png"
+        className="absolute max-w-[105px] md:max-w-[200px] right-0 bottom-0 z-0"
         alt="Footer decoration"
         initial={{ opacity: 0, x: 100 }}
         whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
+        viewport={{ once: false }}
         transition={{ duration: 0.8 }}
-      />
+      /> */}
     </footer>
   );
 };

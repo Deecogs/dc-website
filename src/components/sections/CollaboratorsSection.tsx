@@ -5,6 +5,7 @@ import Link from "next/link";
 interface CollaboratorsSectionProps {
   onBookDemo: () => void;
 }
+
 const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
@@ -29,9 +30,9 @@ const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
     },
     {
       src: "/image/nectworks.png",
-      alt: "Collaborator 3",
-      maxWidth: "clamp(68px, 20vw, 170px)",
-      // name: "Partner Three"
+      alt: "Collaborator 4",
+      maxWidth: "clamp(68px, 20vw, 190px)",
+      // name: "Partner Four"
     }
   ];
 
@@ -111,47 +112,49 @@ const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
               className="flex justify-center flex-wrap flex-row"
               variants={containerVariants}
             >
-              <div className="basis-full md:basis-8/12">
+              <div className="basis-full md:basis-10/12">
                 <motion.div 
-                  className="relative flex justify-between items-center flex-wrap flex-row py-10 px-4 md:px-8 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-500"
+                  className="relative flex justify-between items-center py-12 px-6 md:px-10 rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-500 w-full"
                   whileHover={{ y: -5 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  {collaborators.map((collaborator, index) => (
-                    <motion.div
-                      key={index}
-                      className="relative p-4 transition-all duration-300"
-                      variants={itemVariants}
-                      whileHover={{ 
-                        scale: 1.05,
-                        transition: { duration: 0.2 }
-                      }}
-                      onHoverStart={() => setHoveredIndex(index)}
-                      onHoverEnd={() => setHoveredIndex(null)}
-                    >
-                      <motion.img
-                        src={collaborator.src}
-                        alt={collaborator.alt}
-                        className="w-full inline-block transition-all duration-500 ease-in-out"
-                        style={{ 
-                          maxWidth: collaborator.maxWidth,
-                          filter: hoveredIndex === index ? "grayscale(0)" : "grayscale(100%)" 
+                  <div className="flex flex-wrap md:flex-nowrap justify-around items-center w-full gap-6 md:gap-8">
+                    {collaborators.map((collaborator, index) => (
+                      <motion.div
+                        key={index}
+                        className="relative transition-all duration-300 flex-shrink-0 px-2"
+                        variants={itemVariants}
+                        whileHover={{ 
+                          scale: 1.05,
+                          transition: { duration: 0.2 }
                         }}
-                        whileHover={{ scale: 1.1 }}
-                      />
-                      
-                      {hoveredIndex === index && (
-                        <motion.div
-                          className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-[#FE6623] text-white rounded-full px-3 py-1 text-xs whitespace-nowrap"
-                          initial={{ opacity: 0, y: -10 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: -10 }}
-                        >
-                          {collaborator.name}
-                        </motion.div>
-                      )}
-                    </motion.div>
-                  ))}
+                        onHoverStart={() => setHoveredIndex(index)}
+                        onHoverEnd={() => setHoveredIndex(null)}
+                      >
+                        <motion.img
+                          src={collaborator.src}
+                          alt={collaborator.alt}
+                          className="inline-block transition-all duration-500 ease-in-out object-contain"
+                          style={{ 
+                            maxWidth: collaborator.maxWidth,
+                            filter: hoveredIndex === index ? "grayscale(0)" : "grayscale(100%)" 
+                          }}
+                          whileHover={{ scale: 1.1 }}
+                        />
+                        
+                        {collaborator.name && hoveredIndex === index && (
+                          <motion.div
+                            className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-[#FE6623] text-white rounded-full px-3 py-1 text-xs whitespace-nowrap"
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            exit={{ opacity: 0, y: -10 }}
+                          >
+                            {collaborator.name}
+                          </motion.div>
+                        )}
+                      </motion.div>
+                    ))}
+                  </div>
                 </motion.div>
               </div>
             </motion.div>
@@ -191,7 +194,7 @@ const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
                   whileTap={{ scale: 0.95 }}
                 >
                   <div
-                      onClick={onBookDemo} // Add this prop to the component
+                      onClick={onBookDemo}
                       className="inline-flex items-center bg-[#FE6623] text-white py-2 px-4 rounded-full hover:bg-[#FE6623E3] transition-colors duration-300 cursor-pointer"
                     >
                     <span>Let's Talk</span>
@@ -252,52 +255,6 @@ const CollaboratorsSection = ({ onBookDemo }: CollaboratorsSectionProps) => {
                   </Link>
                 </motion.div>
               </motion.div>
-            </motion.div>
-            
-            {/* Collaboration Stats */}
-            <motion.div 
-              className="mt-16 bg-white rounded-xl p-8 shadow-sm border border-gray-100"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              viewport={{ once: true }}
-            >
-              {/* <h3 className="text-2xl font-normal text-center mb-8">
-                The Power of <span className="heading-orange">Collaboration</span>
-              </h3> */}
-              
-              {/* <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {[
-                  { number: "15+", label: "Global Partners" },
-                  { number: "30+", label: "Joint Projects" },
-                  { number: "40%", label: "Growth Through Partnership" },
-                  { number: "5+", label: "Industries Transformed" }
-                ].map((stat, index) => (
-                  <motion.div 
-                    key={index}
-                    className="text-center"
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.2 + (index * 0.1) }}
-                    whileHover={{ y: -5 }}
-                  >
-                    <motion.div 
-                      className="text-3xl md:text-4xl font-bold text-primary"
-                      initial={{ scale: 0.8 }}
-                      whileInView={{ scale: 1 }}
-                      transition={{ 
-                        type: "spring",
-                        stiffness: 200,
-                        damping: 10,
-                        delay: 0.3 + (index * 0.1)
-                      }}
-                    >
-                      {stat.number}
-                    </motion.div>
-                    <div className="text-gray-600">{stat.label}</div>
-                  </motion.div>
-                ))}
-              </div> */}
             </motion.div>
           </div>
         </motion.div>
