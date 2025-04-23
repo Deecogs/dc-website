@@ -51,7 +51,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         />
                       </div>
                       <div className="grow [padding-left:_clamp(12px,3vw,30px)]">
-                        <span className="heading-orange-two mb-[8px] [font-size:_clamp(12px,2vw,32px)] leading-normal font-bold">
+                        <span className="heading-orange mb-[8px] [font-size:_clamp(16px,3vw,38px)] leading-normal font-bold">
                           +10
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
@@ -76,7 +76,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         />
                       </div>
                       <div className="grow [padding-left:_clamp(12px,3vw,30px)]">
-                        <span className="heading-orange-two mb-[8px] [font-size:_clamp(12px,2vw,32px)] leading-normal font-bold">
+                        <span className="heading-orange mb-[8px] [font-size:_clamp(16px,3vw,38px)] leading-normal font-bold">
                           +5
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
@@ -101,7 +101,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         />
                       </div>
                       <div className="grow [padding-left:_clamp(12px,3vw,30px)]">
-                        <span className="heading-orange-two mb-[8px] [font-size:_clamp(12px,2vw,32px)] leading-normal font-bold">
+                        <span className="heading-orange mb-[8px] [font-size:_clamp(16px,3vw,38px)] leading-normal font-bold">
                           +3
                         </span>
                         <p className="text-[#646464] text-[12px] leading-normal">
@@ -154,7 +154,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                         >
                           Growth
                         </span>
-                        <span className="dot">
+                        {/* <span className="dot">
                           <svg
                             width="18"
                             height="19"
@@ -189,7 +189,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                               </linearGradient>
                             </defs>
                           </svg>
-                        </span>
+                        </span> */}
                       </div>
                     </div>
                     <div className={`circle-2 common-border ${isHoveredTwo ? "borderHover" : ""}`}>
@@ -202,7 +202,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                           >
                             Insights
                           </span>
-                          <span className="dot">
+                          {/* <span className="dot">
                             <svg
                               width="18"
                               height="19"
@@ -237,14 +237,14 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                                 </linearGradient>
                               </defs>
                             </svg>
-                          </span>
+                          </span> */}
                         </div>
                       </div>
                     </div>
                     <div className={`circle-3 common-border ${isHoveredFour ? "borderHover" : ""}`}>
                       <div className="circle-4-1">
                         <div className="flex s2 items-center flex-wrap">
-                          <span className="dot">
+                          {/* <span className="dot">
                             <svg
                               width="18"
                               height="19"
@@ -279,7 +279,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                                 </linearGradient>
                               </defs>
                             </svg>
-                          </span>
+                          </span> */}
                           <span
                             onMouseEnter={() => setIsHoveredFour(true)}
                             onMouseLeave={() => setIsHoveredFour(false)}
@@ -293,7 +293,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                     <div className={`circle-4 common-border ${isHoveredThree ? "borderHover" : ""}`}>
                       <div className="circle-4-1">
                         <div className="flex s1 items-center flex-wrap">
-                          <span className="dot">
+                          {/* <span className="dot">
                             <svg
                               width="18"
                               height="19"
@@ -328,7 +328,7 @@ const DrivingGrowthSection = ({ onBookDemo }: DrivingGrowthSectionProps) => {
                                 </linearGradient>
                               </defs>
                             </svg>
-                          </span>
+                          </span> */}
                           <span
                             onMouseEnter={() => setIsHoveredThree(true)}
                             onMouseLeave={() => setIsHoveredThree(false)}

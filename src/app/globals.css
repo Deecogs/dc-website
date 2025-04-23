@@ -820,3 +820,39 @@ body {
   font-size: 0.875rem;
   color: inherit;
 }
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  html {
+    font-size: 14px; /* Slightly smaller base font on medium-large screens */
+  }
+  
+  h1, h2, h3, .heading-orange {
+    /* Reduce font size for headings on these screens */
+    font-size: 90% !important;
+  }
+}
+
+/* Ensure Windows rendering looks good */
+@media screen and (-webkit-min-device-pixel-ratio: 0) and (min-resolution: 0.001dpcm) {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Revise these classes in your src/app/globals.css file */
+
+/* Reduce the maximum font size in these clamp functions */
+.heading-font-large {
+  font-size: clamp(26px, 2vw, 40px) !important; /* Reduced max value from 46px to 40px */
+}
+
+/* Adjust footer responsive text */
+footer .footer-text {
+  font-size: clamp(10px, 1.5vw, 18px) !important; /* Reduced from 2vw to 1.5vw */
+}
+
+/* Adjust the navigation text size */
+header .nav-text {
+  font-size: clamp(14px, 0.9vw, 16px) !important; /* Reduced from whatever it was */
+}
