@@ -6,38 +6,46 @@ const Footer = () => {
   // Animation variants
   const fadeInUp = {
     hidden: { opacity: 0, y: 30 },
-    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } }
+    visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
   };
-  
+
   const staggerChildren = {
     hidden: { opacity: 0 },
-    visible: { 
+    visible: {
       opacity: 1,
-      transition: { 
+      transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3
-      }
-    }
+        delayChildren: 0.3,
+      },
+    },
   };
 
   const pulseAnimation = {
     initial: { scale: 1 },
     animate: {
       scale: [1, 1.05, 1],
-      transition: { 
+      transition: {
         duration: 2,
         repeat: Infinity,
-        repeatType: "reverse"
-      }
-    }
+        repeatType: "reverse",
+      },
+    },
   };
 
   // Social media links data
   const socialLinks = [
-    { href: "https://in.linkedin.com/company/deecogs", icon: "linkedin", ariaLabel: "LinkedIn" },
+    {
+      href: "https://in.linkedin.com/company/deecogs",
+      icon: "linkedin",
+      ariaLabel: "LinkedIn",
+    },
     { href: "https://x.com/Deecogs_ai", icon: "twitter", ariaLabel: "Twitter" },
     { href: "#", icon: "youtube", ariaLabel: "YouTube" },
-    { href: "https://www.instagram.com/deecogs_/#", icon: "instagram", ariaLabel: "Instagram" }
+    {
+      href: "https://www.instagram.com/deecogs_/#",
+      icon: "instagram",
+      ariaLabel: "Instagram",
+    },
   ];
 
   // Footer navigation data
@@ -49,8 +57,8 @@ const Footer = () => {
         { text: "Careers", href: "#" },
         { text: "Contact Us", href: "#" },
         { text: "Trust Centre", href: "#" },
-        { text: "Recognitions", href: "#" }
-      ]
+        { text: "Recognitions", href: "#" },
+      ],
     },
     {
       title: "Resources",
@@ -59,8 +67,8 @@ const Footer = () => {
         { text: "Publications", href: "#" },
         { text: "Testimonials", href: "#" },
         { text: "Blogs", href: "#" },
-        { text: "Videos", href: "#" }
-      ]
+        { text: "Videos", href: "#" },
+      ],
     },
     {
       title: "Products",
@@ -69,31 +77,31 @@ const Footer = () => {
         { text: "VisionTech", href: "#" },
         { text: "Fusio", href: "#" },
         { text: "Rae", href: "#" },
-        { text: "Notei", href: "#" }
-      ]
+        { text: "Notei", href: "#" },
+      ],
     },
     {
       title: "Solutions",
       links: [
         { text: "Canse", href: "#" },
         { text: "Therai (Cancer Prognostic Tool)", href: "#" },
-        { text: "Excerli (Workout Platform)", href: "#" }
-      ]
-    }
+        { text: "Excerli (Workout Platform)", href: "#" },
+      ],
+    },
   ];
 
   return (
     <footer className="bg-[url('/image/footer.jpg')] [padding-top:_clamp(88px,4vw,255px)] relative bg-cover bg-center bg-no-repeat">
       {/* Background gradient overlay */}
-      <motion.div 
+      <motion.div
         className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent z-0"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1.5 }}
       />
-      
+
       <div className="container max-w-[85rem] mx-auto px-[10px] relative z-10">
-        <motion.div 
+        <motion.div
           className="flex flex-wrap flex-row"
           initial="hidden"
           whileInView="visible"
@@ -101,7 +109,7 @@ const Footer = () => {
           variants={staggerChildren}
         >
           {/* Left Column - Logo and Social Links */}
-          <motion.div 
+          <motion.div
             className="basis-full mb-[20px] lg:basis-5/12"
             variants={fadeInUp}
           >
@@ -118,7 +126,7 @@ const Footer = () => {
                 />
               </Link>
 
-              <motion.p 
+              <motion.p
                 className="text-[#838383] max-w-[520px] text-[14px] lg:text-[18px]"
                 variants={fadeInUp}
               >
@@ -126,14 +134,16 @@ const Footer = () => {
                 opportunities.
               </motion.p>
 
-              <motion.div 
+              <motion.div
                 className="flex flex-wrap mt-[30px] items-center"
                 variants={staggerChildren}
               >
                 {socialLinks.map((social, index) => (
-                  <motion.div 
+                  <motion.div
                     key={social.icon}
-                    className={`px-[2px] lg:px-[6px] ${index === 0 ? 'ps-0' : ''} ${index === socialLinks.length-1 ? 'pe-[0px]' : ''}`}
+                    className={`px-[2px] lg:px-[6px] ${
+                      index === 0 ? "ps-0" : ""
+                    } ${index === socialLinks.length - 1 ? "pe-[0px]" : ""}`}
                     variants={fadeInUp}
                     whileHover={{ scale: 1.15, y: -3 }}
                     transition={{ type: "spring", stiffness: 400 }}
@@ -210,19 +220,16 @@ const Footer = () => {
               </motion.div>
             </div>
           </motion.div>
-          
+
           {/* Right Column - Footer Links */}
-          <motion.div 
-            className="basis-full lg:basis-7/12"
-            variants={fadeInUp}
-          >
-            <motion.div 
+          <motion.div className="basis-full lg:basis-7/12" variants={fadeInUp}>
+            <motion.div
               className="grid grid-cols-2 lg:grid-cols-4 gap-[10px]"
               variants={staggerChildren}
             >
               {footerNavigation.map((column) => (
-                <motion.div 
-                  key={column.title} 
+                <motion.div
+                  key={column.title}
                   variants={fadeInUp}
                   className="mb-8"
                 >
@@ -236,13 +243,13 @@ const Footer = () => {
                       transition={{ duration: 0.8, delay: 0.2 }}
                     />
                   </h2>
-                  <motion.ul 
+                  <motion.ul
                     className="m-0 p-0 space-y-3"
                     variants={staggerChildren}
                   >
                     {column.links.map((link) => (
-                      <motion.li 
-                        key={link.text} 
+                      <motion.li
+                        key={link.text}
                         className="mb-[10px] lg:mb-[12px] transform"
                         variants={fadeInUp}
                         whileHover={{ x: 5, color: "#FE6623" }}
@@ -253,9 +260,13 @@ const Footer = () => {
                           // className="text-[#707070] [font-size:_clamp(10px,2vw,16px)] hover:text-primary transition-colors duration-300 flex items-center"
                           className="text-[#707070] text-sm lg:text-base"
                         >
-                          <motion.span 
+                          <motion.span
                             className="w-0 h-[1px] bg-[#FE6623] mr-0 opacity-0"
-                            whileHover={{ width: 10, marginRight: 8, opacity: 1 }}
+                            whileHover={{
+                              width: 10,
+                              marginRight: 8,
+                              opacity: 1,
+                            }}
                             transition={{ duration: 0.3 }}
                           />
                           {link.text.includes("(") ? (
@@ -277,62 +288,60 @@ const Footer = () => {
             </motion.div>
           </motion.div>
         </motion.div>
-        
+
         {/* Subscribe Section */}
-        <div 
-  className="flex flex-wrap mt-[30px] lg:mt-[0px] mb-[30px] lg:mb-[58px] flex-row items-end"
->
-  <div className="basis-full pe-[15px] lg:basis-6/12">
-    <div className="max-w-[556px]">
-      <span className="text-[#0000008a] font-normal [font-size:_clamp(12px,2vw,24px)]">
-        For Latest Insights
-      </span>
-      <h3 className="text-[#000000] font-normal leading-[1.3] [font-size:_clamp(16px,2vw,26px)]">
-        Subscribe for Updates.
-      </h3>
-      <form className="mt-[20px] lg:mt-[40px]">
-        <div className="w-full group relative">
-          <input
-            type="email"
-            name="email"
-            id="floating_email"
-            className="block pe-[35px] py-3 px-0 w-full text-[#000] bg-transparent border-0 border-b-2 border-p[#000000bf] appearance-none focus:outline-none focus:ring-0 placeholder:font-light placeholder:text-[#000000bf] text-[20px] focus:border-[#FE6623E3] peer"
-            placeholder="Enter your email address.."
-            required
-          />
-          <button
-            type="submit"
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-primary hover:text-[#FE6623E3] transition-colors"
-          >
-            <svg 
-              width="24" 
-              height="24" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path 
-                d="M14 5l7 7-7 7" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-              <path 
-                d="M21 12H3" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
+        <div className="flex flex-wrap mt-[30px] lg:mt-[0px] mb-[30px] lg:mb-[58px] flex-row items-end">
+          <div className="basis-full pe-[15px] lg:basis-6/12">
+            <div className="max-w-[556px]">
+              <span className="text-[#0000008a] font-normal [font-size:_clamp(12px,2vw,24px)]">
+                For Latest Insights
+              </span>
+              <h3 className="text-[#000000] font-normal leading-[1.3] [font-size:_clamp(16px,2vw,26px)]">
+                Subscribe for Updates.
+              </h3>
+              <form className="mt-[20px] lg:mt-[40px]">
+                <div className="w-full group relative">
+                  <input
+                    type="email"
+                    name="email"
+                    id="floating_email"
+                    className="block pe-[35px] py-3 px-0 w-full text-[#000] bg-transparent border-0 border-b-2 border-p[#000000bf] appearance-none focus:outline-none focus:ring-0 placeholder:font-light placeholder:text-[#000000bf] text-[20px] focus:border-[#FE6623E3] peer"
+                    placeholder="Enter your email address.."
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="absolute right-0 top-1/2 -translate-y-1/2 text-primary hover:text-[#FE6623E3] transition-colors"
+                  >
+                    <svg
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M14 5l7 7-7 7"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M21 12H3"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
         </div>
-      </form>
-    </div>
-  </div>
-</div>
-        
+
         {/* Footer Bottom Section */}
         <motion.div
           initial={{ opacity: 0 }}
@@ -340,43 +349,43 @@ const Footer = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          <motion.hr 
+          <motion.hr
             className="border-0 h-[1px] bg-hr-gradient"
             initial={{ width: 0 }}
             whileInView={{ width: "100%" }}
             transition={{ duration: 1 }}
           />
         </motion.div>
-        
-        <motion.div 
+
+        <motion.div
           className="text-center py-[15px] lg:py-[32px]"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, delay: 0.2 }}
         >
-          <motion.span 
+          <motion.span
             className="text-[#292C33] block mb-[32px] text-[14px]"
             whileHover={{ color: "#FE6623" }}
           >
-            @2024 DeeCogs
+            @2025 DeeCogs
           </motion.span>
           <ul className="flex justify-center">
             {["Legal", "Privacy", "Trust"].map((item, index) => (
-              <motion.li 
-                key={item} 
-                className="px-[32px]" 
+              <motion.li
+                key={item}
+                className="px-[32px]"
                 initial={{ opacity: 0, y: 10 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2 + index * 0.1 }}
                 whileHover={{ y: -2 }}
               >
-                <Link 
-                  href="#" 
+                <Link
+                  href="#"
                   className="text-[#292C33] text-[14px] hover:text-primary transition-colors relative group"
                 >
                   {item}
-                  <motion.span 
+                  <motion.span
                     className="absolute -bottom-1 left-0 h-[1px] bg-[#FE6623] w-0 group-hover:w-full transition-all duration-300"
                     initial={{ width: "0%" }}
                     whileHover={{ width: "100%" }}
@@ -387,7 +396,7 @@ const Footer = () => {
           </ul>
         </motion.div>
       </div>
-      
+
       {/* Footer Decoration */}
       {/* <motion.img
         src="/image/gradient.png"
