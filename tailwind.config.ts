@@ -117,5 +117,13 @@ export default {
   },
   plugins: [
     flowbite.plugin(),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.bg-gradient-radial': {
+          'background-image': 'radial-gradient(var(--tw-gradient-stops))',
+        },
+      }
+      addUtilities(newUtilities)
+    },
   ],
 } satisfies Config;

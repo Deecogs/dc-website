@@ -63,11 +63,7 @@ body {
 }
 
 /* ---------- BACKGROUND STYLES ---------- */
-.hero-bg {
-  background-image: url("https://dcmedvectorstore.blob.core.windows.net/website-videos/hero-anim.gif");
-  background-size: cover;
-  background-position: center;
-}
+/* Removed hero-bg class as we now use AIAnimation component */
 
 .blur-bg {
   backdrop-filter: blur(10px);
