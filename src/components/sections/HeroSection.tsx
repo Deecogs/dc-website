@@ -1,11 +1,16 @@
 // src/components/sections/HeroSection.tsx
 "use client";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { motion, useAnimation } from "framer-motion";
 import Button from "@/components/common/Button";
+import AIAnimation from "@/components/common/AIAnimation";
+import TextNeuralIcon from "@/components/common/TextNeuralIcon";
+import TextConnectorAnimation from "@/components/common/TextConnectorAnimation";
+import CircuitBrainAnimation from "@/components/common/CircuitBrainAnimation";
+import WaveformAnimation from "@/components/common/WaveformAnimation";
 
 interface HeroSectionProps {
   onBookDemo: () => void;
@@ -14,6 +19,7 @@ interface HeroSectionProps {
 const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
   const controls = useAnimation();
   const sliderRef = useRef<Slider>(null);
+  const [activeAnimation, setActiveAnimation] = useState<string>("circuit");
   
   useEffect(() => {
     controls.start({
@@ -21,18 +27,6 @@ const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
       y: 0,
       transition: { duration: 0.8, staggerChildren: 0.2 }
     });
-    
-    // Add a scroll listener for parallax effect
-    const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const heroSection = document.querySelector('.hero-bg');
-      if (heroSection) {
-        heroSection.style.backgroundPositionY = `${scrollY * 0.5}px`;
-      }
-    };
-    
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
   }, [controls]);
   
   // Smooth scroll function to solutions section
@@ -89,12 +83,13 @@ const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
   };
 
   return (
-    <section className="hero-bg min-h-screen flex items-center overflow-hidden relative pt-20 md:pt-28 lg:pt-32">
-      <div className="absolute inset-0 z-0 bg-gradient-to-b from-black/70 via-black/50 to-black/80 backdrop-filter backdrop-blur-sm"></div>
+    <section className="min-h-screen flex items-center overflow-hidden relative pt-20 md:pt-28 lg:pt-32">
+      {/* AI Animation Background */}
+      <AIAnimation />
       
       <div className="container max-w-[90rem] relative z-10 mx-auto px-5">
         <motion.div 
-          className="flex flex-col h-[calc(100vh-100px)] justify-center pl-4 md:pl-8 lg:pl-12"
+          className="flex flex-col h-[calc(100vh-100px)] justify-center pl-4 md:pl-8 lg:pl-12 w-full md:w-2/3 lg:w-1/2"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
@@ -115,11 +110,26 @@ const HeroSection = ({ onBookDemo }: HeroSectionProps) => {
                 variants={itemVariants}
               >
                 <div className="flex items-center">
-                  <img
-                    src="/image/Intelligent.png"
-                    className="h-10 md:h-12 xl:h-14 mr-4"
-                    alt="AI"
-                  />
+                  {activeAnimation === "neural" && (
+                    <TextNeuralIcon
+                      className="h-16 md:h-20 xl:h-24 mr-4"
+                    />
+                  )}
+                  {activeAnimation === "connector" && (
+                    <TextConnectorAnimation
+                      className="h-16 md:h-20 xl:h-24 mr-4"
+                    />
+                  )}
+                  {activeAnimation === "circuit" && (
+                    <CircuitBrainAnimation
+                      className="h-16 md:h-20 xl:h-24 mr-4"
+                    />
+                  )}
+                  {activeAnimation === "waveform" && (
+                    <WaveformAnimation
+                      className="h-16 md:h-20 xl:h-24 mr-4"
+                    />
+                  )}
                   <span className="text-white mr-4 text-4xl md:text-5xl lg:text-6xl">For</span>
                 
 

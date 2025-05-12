@@ -1,0 +1,13 @@
+# DeeCogs Website Robots.txt
+# https://deecogs.com
+
+User-agent: *
+Allow: /
+
+# Disallow temporary or development routes
+Disallow: /api/
+Disallow: /admin/
+Disallow: /coming-soon/
+
+# Sitemaps
+Sitemap: https://deecogs.com/sitemap.xml

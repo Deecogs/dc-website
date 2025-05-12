@@ -29,6 +29,21 @@ export default {
           800: '#B24417',
           900: '#993913'
         },
+        secondary: {
+          DEFAULT: '#FF8A50',
+          light: 'rgba(255, 138, 80, 0.2)',
+          hover: 'rgba(255, 138, 80, 0.9)',
+          50: 'rgba(255, 138, 80, 0.05)',
+          100: 'rgba(255, 138, 80, 0.1)',
+          200: 'rgba(255, 138, 80, 0.2)',
+          300: 'rgba(255, 138, 80, 0.3)',
+          400: 'rgba(255, 138, 80, 0.4)',
+          500: '#FF8A50', // Main secondary color
+          600: '#FF7E3D',
+          700: '#FF6D22',
+          800: '#FF5700',
+          900: '#E54E00'
+        },
         gray: {
           50: '#F9FAFB',
           100: '#F3F4F6',
@@ -43,33 +58,33 @@ export default {
         }
       },
       fontSize: {
-        'xs': 'clamp(10px, 0.8vw, 14px)',      // Reduced vw value
-        'sm': 'clamp(12px, 0.9vw, 16px)',      // Reduced vw value
-        'base': 'clamp(14px, 1vw, 17px)',      // Reduced vw value
-        'lg': 'clamp(16px, 1.2vw, 18px)',      // Reduced vw value
-        'xl': 'clamp(18px, 1.5vw, 24px)',      // Reduced vw value
-        '2xl': 'clamp(20px, 2vw, 30px)',       // Reduced vw value
-        '3xl': 'clamp(24px, 2.5vw, 36px)',     // Reduced vw value
-        '4xl': 'clamp(30px, 3vw, 48px)',       // Reduced vw value
-        '5xl': 'clamp(36px, 3.5vw, 60px)',     // Reduced vw value
-        '6xl': 'clamp(48px, 4vw, 60px)',       // Reduced vw value
+        'xs': ['0.75rem', { lineHeight: '1rem' }],      
+        'sm': ['0.875rem', { lineHeight: '1.25rem' }],      
+        'base': ['1rem', { lineHeight: '1.5rem' }],      
+        'lg': ['1.125rem', { lineHeight: '1.75rem' }],      
+        'xl': ['1.25rem', { lineHeight: '1.75rem' }],      
+        '2xl': ['1.5rem', { lineHeight: '2rem' }],       
+        '3xl': ['1.875rem', { lineHeight: '2.25rem' }],     
+        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],       
+        '5xl': ['3rem', { lineHeight: '1' }],     
+        '6xl': ['3.75rem', { lineHeight: '1' }],       
       },
       spacing: {
-        'xs': 'clamp(4px, 0.5vw, 8px)',
-        'sm': 'clamp(8px, 1vw, 16px)',
-        'md': 'clamp(16px, 2vw, 24px)',
-        'lg': 'clamp(24px, 3vw, 32px)',
-        'xl': 'clamp(32px, 4vw, 48px)',
-        '2xl': 'clamp(48px, 5vw, 64px)',
-        '3xl': 'clamp(64px, 6vw, 96px)',
+        'xs': '0.5rem',
+        'sm': '1rem',
+        'md': '1.5rem',
+        'lg': '2rem',
+        'xl': '3rem',
+        '2xl': '4rem',
+        '3xl': '6rem',
       },
       borderRadius: {
-        'xs': '4px',
-        'sm': '8px',
-        'md': '12px',
-        'lg': '16px',
-        'xl': '24px',
-        '2xl': '32px',
+        'xs': '0.25rem',
+        'sm': '0.5rem',
+        'md': '0.75rem',
+        'lg': '1rem',
+        'xl': '1.5rem',
+        '2xl': '2rem',
         'full': '9999px'
       },
       boxShadow: {
@@ -80,13 +95,17 @@ export default {
         'xl': '0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
         '2xl': '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
         'primary': '0 4px 14px 0 rgba(254, 102, 35, 0.3)',
+        'inner': 'inset 0 2px 4px 0 rgba(0, 0, 0, 0.06)',
         'none': 'none'
       },
       transitionDuration: {
-        'DEFAULT': '300ms'
+        'DEFAULT': '300ms',
+        'fast': '150ms',
+        'slow': '500ms'
       },
       transitionTimingFunction: {
-        'DEFAULT': 'cubic-bezier(0.4, 0, 0.2, 1)'
+        'DEFAULT': 'cubic-bezier(0.4, 0, 0.2, 1)',
+        'bounce': 'cubic-bezier(0.175, 0.885, 0.32, 1.275)'
       },
       animation: {
         'float': 'float 6s ease-in-out infinite',
@@ -94,6 +113,7 @@ export default {
         'fade-in': 'fadeIn 1s ease-out forwards',
         'slide-up': 'slideUp 0.8s ease-out forwards',
         'slide-right': 'slideRight 0.8s ease-out forwards',
+        'gradient-x': 'gradientX 3s ease infinite',
       },
       keyframes: {
         float: {
@@ -112,10 +132,103 @@ export default {
           from: { opacity: '0', transform: 'translateX(-30px)' },
           to: { opacity: '1', transform: 'translateX(0)' },
         },
+        gradientX: {
+          '0%, 100%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+        },
+      },
+      screens: {
+        'xs': '475px',
+        'sm': '640px',
+        'md': '768px',
+        'lg': '1024px',
+        'xl': '1280px',
+        '2xl': '1536px',
+        '3xl': '1920px',
+      },
+      zIndex: {
+        '0': '0',
+        '10': '10',
+        '20': '20',
+        '30': '30',
+        '40': '40',
+        '50': '50',
+        '60': '60',
+        '70': '70',
+        '80': '80',
+        '90': '90',
+        '100': '100',
+        'auto': 'auto',
+      },
+      gridTemplateColumns: {
+        'auto-fill-100': 'repeat(auto-fill, minmax(100px, 1fr))',
+        'auto-fill-150': 'repeat(auto-fill, minmax(150px, 1fr))',
+        'auto-fill-200': 'repeat(auto-fill, minmax(200px, 1fr))',
+        'auto-fill-250': 'repeat(auto-fill, minmax(250px, 1fr))',
+        'auto-fill-300': 'repeat(auto-fill, minmax(300px, 1fr))',
+      },
+      aspectRatio: {
+        'auto': 'auto',
+        'square': '1 / 1',
+        'video': '16 / 9',
+        'portrait': '3 / 4',
+        'landscape': '4 / 3',
       },
     },
   },
   plugins: [
     flowbite.plugin(),
+    function({ addUtilities }) {
+      const newUtilities = {
+        '.bg-gradient-radial': {
+          'background-image': 'radial-gradient(var(--tw-gradient-stops))',
+        },
+        '.text-balance': {
+          'text-wrap': 'balance',
+        },
+        '.no-scrollbar::-webkit-scrollbar': {
+          'display': 'none',
+        },
+        '.no-scrollbar': {
+          '-ms-overflow-style': 'none',
+          'scrollbar-width': 'none',
+        },
+        '.text-shadow': {
+          'text-shadow': '0 2px 4px rgba(0, 0, 0, 0.1)',
+        },
+        '.text-shadow-lg': {
+          'text-shadow': '0 4px 8px rgba(0, 0, 0, 0.2)',
+        },
+      }
+      addUtilities(newUtilities)
+    },
+  ],
+  safelist: [
+    'text-primary',
+    'bg-primary',
+    'border-primary',
+    'text-white',
+    'bg-white',
+    'border-white',
+    'text-gray-500',
+    'text-gray-700',
+    'text-gray-900',
+    'rounded-full',
+    'rounded-xl',
+    'rounded-2xl',
+    'shadow-sm',
+    'shadow',
+    'shadow-md',
+    'shadow-lg',
+    'shadow-xl',
+    'hover:shadow-md',
+    'hover:shadow-lg',
+    'hover:shadow-xl',
+    'focus:ring-2',
+    'focus:ring-primary',
+    'focus:ring-offset-2',
+    'transition-all',
+    'duration-300',
+    'ease-in-out',
   ],
 } satisfies Config;
