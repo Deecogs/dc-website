@@ -13,52 +13,52 @@ const Header = () => {
   
   // Navigation items with dropdown menus
   const navItems = [
-    { 
-      name: "Products", 
+    {
+      name: "Products",
       path: "#",
       dropdown: [
-        { name: "Docurate", path: "/products/docurate" },
-        { name: "VisionTech", path: "/coming-soon/visiontech" },
-        { name: "Fusio", path: "/coming-soon/fusio" },
-        { name: "Rae", path: "/coming-soon/rae" },
-        { name: "Notei", path: "/coming-soon/notei" }
+        { name: "Docurate", path: "/products/docurate", description: "AI-powered document processing & extraction" },
+        { name: "VisionTech", path: "/coming-soon/visiontech", description: "Computer vision for advanced image analysis" },
+        { name: "Fusio", path: "/coming-soon/fusio", description: "Data integration platform with AI capabilities" },
+        { name: "Rae", path: "/coming-soon/rae", description: "Conversational AI assistant for enterprises" },
+        { name: "Notei", path: "/coming-soon/notei", description: "AI note-taking and knowledge management" }
       ]
     },
-    { 
-      name: "Solutions", 
+    {
+      name: "Solutions",
       path: "#",
       dropdown: [
-        { name: "Healthcare", path: "/coming-soon/healthcare" },
-        { name: "Finance", path: "/coming-soon/finance" },
-        { name: "Retail", path: "/coming-soon/retail" },
-        { name: "Manufacturing", path: "/solutions/manufacturing" }
+        { name: "Healthcare", path: "/coming-soon/healthcare", description: "AI diagnostics and patient care optimization" },
+        { name: "Finance", path: "/coming-soon/finance", description: "Intelligent document processing for finance" },
+        { name: "Retail", path: "/coming-soon/retail", description: "Customer insights and inventory management" },
+        { name: "Manufacturing", path: "/solutions/manufacturing", description: "Quality control and predictive maintenance" }
       ]
     },
-    { 
-      name: "Developers", 
+    {
+      name: "Developers",
       path: "#",
       dropdown: [
-        { name: "Documentation", path: "/coming-soon/docs" },
-        { name: "API References", path: "/coming-soon/api" },
-        { name: "SDK", path: "/coming-soon/sdk" }
+        { name: "Documentation", path: "/coming-soon/docs", description: "Comprehensive guides for our AI platforms" },
+        { name: "API References", path: "/coming-soon/api", description: "Technical specifications for integration" },
+        { name: "SDK", path: "/coming-soon/sdk", description: "Development kits for building with our AI" }
       ]
     },
-    { 
-      name: "Resources", 
+    {
+      name: "Resources",
       path: "#",
       dropdown: [
-        { name: "Blog", path: "/blog" },
-        { name: "Case Studies", path: "/coming-soon/case-studies" },
-        { name: "Whitepapers", path: "/coming-soon/whitepapers" }
+        { name: "Blog", path: "/blog", description: "Latest AI insights and company updates" },
+        { name: "Case Studies", path: "/coming-soon/case-studies", description: "Real-world AI implementation stories" },
+        { name: "Whitepapers", path: "/coming-soon/whitepapers", description: "In-depth research on AI technologies" }
       ]
     },
-    { 
-      name: "Company", 
+    {
+      name: "Company",
       path: "#",
       dropdown: [
-        { name: "About Us", path: "/company/about" },
-        { name: "Careers", path: "/company/careers" },
-        { name: "Contact", path: "/company/contact" }
+        { name: "About Us", path: "/company/about", description: "Our mission and AI expertise" },
+        { name: "Careers", path: "/company/careers", description: "Join our team of AI innovators" },
+        { name: "Contact", path: "/company/contact", description: "Get in touch with our specialists" }
       ]
     },
   ];
@@ -161,7 +161,7 @@ const Header = () => {
                     {activeDropdown === index && (
                       <motion.div
                         id={`dropdown-menu-${item.name}`}
-                        className="absolute top-full left-0 mt-2 w-52 rounded-md shadow-lg bg-black/80 backdrop-blur-md border border-gray-700 overflow-hidden z-50"
+                        className="absolute top-full left-0 mt-2 w-72 rounded-md shadow-lg bg-black/80 backdrop-blur-md border border-gray-700 overflow-hidden z-50"
                         initial={{ opacity: 0, y: -10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
@@ -183,11 +183,18 @@ const Header = () => {
                             >
                               <Link
                                 href={dropdownItem.path}
-                                className="group flex items-center px-4 py-3 text-sm text-gray-200 hover:text-primary transition-colors duration-200 focus:outline-none focus:bg-gray-800/50 focus:text-primary"
+                                className="group flex flex-col px-4 py-3 text-sm text-gray-200 hover:text-primary transition-colors duration-200 focus:outline-none focus:bg-gray-800/50 focus:text-primary"
                                 role="menuitem"
                               >
-                                <span className="h-1 w-0 bg-primary rounded-full mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-200"></span>
-                                {dropdownItem.name}
+                                <div className="flex items-center">
+                                  <span className="h-1 w-0 bg-primary rounded-full mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-200"></span>
+                                  <span className="font-medium">{dropdownItem.name}</span>
+                                </div>
+                                {dropdownItem.description && (
+                                  <span className="text-xs text-gray-400 mt-1 pl-5 group-hover:text-gray-300 transition-colors">
+                                    {dropdownItem.description}
+                                  </span>
+                                )}
                               </Link>
                             </motion.div>
                           ))}
@@ -294,7 +301,7 @@ const Header = () => {
                           {activeDropdown === index && (
                             <motion.div
                               id={`mobile-dropdown-menu-${item.name}`}
-                              className="mt-3 pl-4 space-y-3 bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-2 border-primary/50"
+                              className="mt-3 pl-4 space-y-4 bg-gradient-to-r from-gray-800/50 to-gray-900/50 rounded-lg p-4 border-l-2 border-primary/50"
                               initial={{ opacity: 0, height: 0, scale: 0.95 }}
                               animate={{ opacity: 1, height: "auto", scale: 1 }}
                               exit={{ opacity: 0, height: 0, scale: 0.9 }}
@@ -312,12 +319,19 @@ const Header = () => {
                                 >
                                   <Link
                                     href={dropdownItem.path}
-                                    className="flex items-center py-2 text-sm text-gray-200 hover:text-primary transition-colors group focus:outline-none focus:text-primary focus:underline"
+                                    className="flex flex-col py-2 text-sm text-gray-200 hover:text-primary transition-colors group focus:outline-none focus:text-primary focus:underline"
                                     onClick={handleMobileMenuToggle}
                                     role="menuitem"
                                   >
-                                    <span className="block h-1.5 w-1.5 rounded-full bg-gray-400 group-hover:bg-primary mr-2 transition-colors"></span>
-                                    {dropdownItem.name}
+                                    <div className="flex items-center">
+                                      <span className="block h-1.5 w-1.5 rounded-full bg-gray-400 group-hover:bg-primary mr-2 transition-colors"></span>
+                                      <span className="font-medium">{dropdownItem.name}</span>
+                                    </div>
+                                    {dropdownItem.description && (
+                                      <span className="text-xs text-gray-400 mt-1 ml-4 group-hover:text-gray-300 transition-colors">
+                                        {dropdownItem.description}
+                                      </span>
+                                    )}
                                   </Link>
                                 </motion.div>
                               ))}
