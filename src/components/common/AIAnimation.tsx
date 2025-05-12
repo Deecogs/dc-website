@@ -14,16 +14,6 @@ const AIAnimation: React.FC = () => {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
 
-    // Set canvas size
-    const updateCanvasSize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-
-    // Initialize canvas
-    updateCanvasSize();
-    window.addEventListener("resize", updateCanvasSize);
-
     // Colors
     const colors = {
       primary: "#FE6623",   // Orange (DeeCogs primary)
@@ -32,10 +22,29 @@ const AIAnimation: React.FC = () => {
       white: "#FFFFFF"
     };
 
-    // Animation parameters - expanded to cover more of the right half
-    const RIGHT_SIDE_CENTER_X = canvas.width * 0.7; // Moved more toward center
-    const CENTER_Y = canvas.height * 0.5;
-    const RADIUS = Math.min(canvas.width, canvas.height) * 0.45; // Larger radius
+    // Define responsive variables
+    let RIGHT_SIDE_CENTER_X: number;
+    let CENTER_Y: number;
+    let RADIUS: number;
+
+    // Function to check if device is mobile
+    const checkIfMobile = () => window.innerWidth < 768;
+
+    // Set canvas size and update responsive variables
+    const updateCanvasSize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      // Update responsive variables when resizing
+      const isMobile = checkIfMobile();
+      RIGHT_SIDE_CENTER_X = canvas.width * (isMobile ? 0.5 : 0.7);
+      CENTER_Y = canvas.height * 0.5;
+      RADIUS = Math.min(canvas.width, canvas.height) * (isMobile ? 0.35 : 0.45);
+    };
+
+    // Initialize canvas and variables
+    updateCanvasSize();
+    window.addEventListener("resize", updateCanvasSize);
 
     // Particles/nodes
     interface Particle {
@@ -51,9 +60,9 @@ const AIAnimation: React.FC = () => {
       connectionRadius: number;
     }
 
-    // Generate particles - specifically on the right side
+    // Generate particles - adjust count for mobile screens
     const particles: Particle[] = [];
-    const particleCount = 60; // Increased count for more visibility
+    const particleCount = checkIfMobile() ? 40 : 60; // Reduce particles on mobile for better performance
     
     for (let i = 0; i < particleCount; i++) {
       // Polar coordinates for better distribution
@@ -223,11 +232,11 @@ const AIAnimation: React.FC = () => {
         ></div>
       </div>
       
-      {/* Background decoration - fixed on right side */}
+      {/* Background decoration - improved for mobile */}
       <div className="absolute inset-0 pointer-events-none">
-        {/* Larger orange glow on right side */}
-        <motion.div 
-          className="absolute top-1/4 right-0 w-2/3 h-2/3"
+        {/* Responsive orange glow */}
+        <motion.div
+          className="absolute top-1/4 right-0 md:w-2/3 w-full h-2/3"
           style={{
             background: "radial-gradient(circle at 70% 50%, rgba(254, 102, 35, 0.2) 0%, rgba(0, 0, 0, 0) 60%)",
             filter: "blur(70px)",
@@ -241,10 +250,10 @@ const AIAnimation: React.FC = () => {
             ease: "easeInOut",
           }}
         />
-        
-        {/* Enhanced blue accent */}
-        <motion.div 
-          className="absolute bottom-1/4 right-1/4 w-1/2 h-1/2"
+
+        {/* Enhanced blue accent - adjusted for mobile */}
+        <motion.div
+          className="absolute bottom-1/4 right-1/4 md:w-1/2 w-3/4 h-1/2"
           style={{
             background: "radial-gradient(circle at 75% 75%, rgba(28, 119, 203, 0.15) 0%, rgba(0, 0, 0, 0) 60%)",
             filter: "blur(90px)",
