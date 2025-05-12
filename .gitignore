@@ -43,3 +43,5 @@ next-env.d.ts
 
 # gif
 *.gif
+
+**/.claude/settings.local.json

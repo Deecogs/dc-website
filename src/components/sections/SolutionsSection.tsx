@@ -5,11 +5,22 @@ import Link from "next/link";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Navigation, Autoplay, EffectCoverflow } from "swiper/modules";
 import { motion, useAnimation, useInView } from "framer-motion";
+import OptimizedImage from "@/components/common/OptimizedImage";
+import { generateSizesAttribute, commonBreakpoints } from "@/utils/imageUtils";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import "swiper/css/effect-coverflow";
 
+/**
+ * SolutionsSection component showcasing the company's AI solutions
+ * 
+ * Features:
+ * - Responsive solution cards with optimized images
+ * - Interactive hover effects and animations
+ * - Accessible technology filtering
+ * - Proper semantic HTML structure
+ */
 const SolutionsSection = () => {
   const swiperRef = useRef<any>(null);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -22,16 +33,16 @@ const SolutionsSection = () => {
     }
   }, [controls, inView]);
   
-  // Updated solution types with icons
+  // Solution types with semantic icons and descriptions for accessibility
   const solutionTypes = [
-    { name: "Vision Tech", icon: "👁️" },
-    { name: "LLMs", icon: "🧠" },
-    { name: "Edge Computing", icon: "⚡" },
-    { name: "Prediction Models", icon: "📊" },
-    { name: "Language Processing", icon: "💬" }
+    { name: "Vision Tech", icon: "👁️", description: "Computer vision and image recognition technology" },
+    { name: "LLMs", icon: "🧠", description: "Large language models and natural language processing" },
+    { name: "Edge Computing", icon: "⚡", description: "Processing data near the source for faster response times" },
+    { name: "Prediction Models", icon: "📊", description: "Machine learning algorithms for predictive analytics" },
+    { name: "Language Processing", icon: "💬", description: "Natural language understanding and generation" }
   ];
   
-  // Enhanced solutions data with more detailed descriptions
+  // Enhanced solutions data with proper metadata and descriptions
   const solutions = [
     {
       title: "Docurate",
@@ -39,7 +50,8 @@ const SolutionsSection = () => {
       image: "/image/llm-1.png",
       link: "/products/docurate",
       category: "Document Processing",
-      techTags: ["NLP", "OCR", "Deep Learning"]
+      techTags: ["NLP", "OCR", "Deep Learning"],
+      dimensions: { width: 600, height: 400 }
     },
     {
       title: "VisionTech",
@@ -47,7 +59,8 @@ const SolutionsSection = () => {
       image: "/image/llm-2.png",
       link: "/coming-soon",
       category: "Computer Vision",
-      techTags: ["CNN", "Object Detection", "Image Analysis"]
+      techTags: ["CNN", "Object Detection", "Image Analysis"],
+      dimensions: { width: 600, height: 400 }
     },
     {
       title: "Fusio",
@@ -55,7 +68,8 @@ const SolutionsSection = () => {
       image: "/image/llm-3.png",
       link: "/coming-soon",
       category: "Data Fusion",
-      techTags: ["Multimodal AI", "Integration", "LLMs"]
+      techTags: ["Multimodal AI", "Integration", "LLMs"],
+      dimensions: { width: 600, height: 400 }
     },
     {
       title: "Canse",
@@ -64,7 +78,8 @@ const SolutionsSection = () => {
       image: "/image/llm-4.png",
       link: "/coming-soon",
       category: "Healthcare",
-      techTags: ["Medical AI", "Predictive Analytics", "Imaging"]
+      techTags: ["Medical AI", "Predictive Analytics", "Imaging"],
+      dimensions: { width: 600, height: 400 }
     },
     {
       title: "Notei",
@@ -72,11 +87,15 @@ const SolutionsSection = () => {
       image: "/image/llm-5.png",
       link: "/coming-soon",
       category: "Medical Notes",
-      techTags: ["Healthcare NLP", "FHIR", "Clinical AI"]
+      techTags: ["Healthcare NLP", "FHIR", "Clinical AI"],
+      dimensions: { width: 600, height: 400 }
     }
   ];
 
-  // Enhanced animation variants
+  // Generate sizes attribute for solution card images based on breakpoints
+  const cardSizes = generateSizesAttribute(commonBreakpoints.card);
+
+  // Animation variants with improved performance
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -110,6 +129,7 @@ const SolutionsSection = () => {
     <section 
       id="solutions" 
       ref={sectionRef}
+      aria-label="Our AI Solutions"
       className="delivering-ai-solutions relative [padding-top:_clamp(54px,4vw,192px)] [padding-bottom:_clamp(54px,4vw,160px)] bg-gradient-to-b from-white to-gray-50 overflow-hidden"
     >
       {/* Background decorative elements */}
@@ -127,7 +147,7 @@ const SolutionsSection = () => {
             className="bg-[#1316310D] rounded-[31px] py-[8px] px-[16px] text-[13px] text-[#000] inline-block"
             variants={scaleVariants}
           >
-            <span className="mr-2">✨</span>
+            <span className="mr-2" aria-hidden="true">✨</span>
             Solutions
           </motion.span>
           
@@ -160,6 +180,7 @@ const SolutionsSection = () => {
               <Link
                 href="/products"
                 className="text-primary text-[18px] lg:text-[22px] flex items-center font-normal hover:translate-x-1 transition-transform duration-300"
+                aria-label="Explore all AI solutions"
               >
                 <span>Explore All</span>
                 <svg
@@ -167,6 +188,7 @@ const SolutionsSection = () => {
                   viewBox="0 0 24 24"
                   fill="none"
                   xmlns="http://www.w3.org/2000/svg"
+                  aria-hidden="true"
                 >
                   <path
                     d="M17.5 12L6.5 12"
@@ -191,6 +213,8 @@ const SolutionsSection = () => {
           <motion.div
             className="flex flex-wrap gap-3 mb-10"
             variants={itemVariants}
+            role="group"
+            aria-label="Technology categories"
           >
             {solutionTypes.map((type, index) => (
               <motion.div
@@ -200,8 +224,11 @@ const SolutionsSection = () => {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: index * 0.1, duration: 0.4 }}
                 whileHover={{ scale: 1.05, y: -2 }}
+                title={type.description}
+                role="button"
+                tabIndex={0}
               >
-                <span className="mr-2">{type.icon}</span>
+                <span className="mr-2" aria-hidden="true">{type.icon}</span>
                 {type.name}
               </motion.div>
             ))}
@@ -231,8 +258,14 @@ const SolutionsSection = () => {
               pagination={{
                 clickable: true,
                 dynamicBullets: true,
+                renderBullet: (index, className) => {
+                  return `<span class="${className}" aria-label="Go to slide ${index + 1}"></span>`;
+                },
               }}
-              navigation={true}
+              navigation={{
+                prevEl: '.swiper-button-prev',
+                nextEl: '.swiper-button-next',
+              }}
               breakpoints={{
                 640: { slidesPerView: 1.2, spaceBetween: 20 },
                 768: { slidesPerView: 2, spaceBetween: 30 },
@@ -241,6 +274,14 @@ const SolutionsSection = () => {
               }}
               modules={[Pagination, Navigation, Autoplay, EffectCoverflow]}
               className="solutions-swiper !pb-20"
+              a11y={{
+                enabled: true,
+                prevSlideMessage: 'Previous solution',
+                nextSlideMessage: 'Next solution',
+                firstSlideMessage: 'This is the first solution',
+                lastSlideMessage: 'This is the last solution',
+                paginationBulletMessage: 'Go to solution {{index}}',
+              }}
             >
               {solutions.map((solution, index) => (
                 <SwiperSlide key={`solution-${index}`}>
@@ -249,10 +290,16 @@ const SolutionsSection = () => {
                     variants={itemVariants}
                   >
                     <div className="h-[300px] w-full overflow-hidden relative">
-                      <img
+                      {/* Using OptimizedImage component instead of img tag */}
+                      <OptimizedImage
                         src={solution.image}
+                        alt={`${solution.title} - ${solution.category} solution`}
+                        width={solution.dimensions.width}
+                        height={solution.dimensions.height}
                         className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
-                        alt={solution.title}
+                        sizes={cardSizes}
+                        priority={index < 2} // Prioritize loading of first two visible slides
+                        quality={85}
                       />
                       
                       {/* Category tag */}
@@ -274,9 +321,9 @@ const SolutionsSection = () => {
                           </h3>
                           
                           {/* Tech tags */}
-                          <div className="flex flex-wrap gap-2 mb-3">
+                          <div className="flex flex-wrap gap-2 mb-3" role="list" aria-label="Technologies used">
                             {solution.techTags?.map((tag, i) => (
-                              <span key={i} className="inline-block text-xs px-2 py-1 bg-white/10 text-gray-200 rounded-md">
+                              <span key={i} className="inline-block text-xs px-2 py-1 bg-white/10 text-gray-200 rounded-md" role="listitem">
                                 {tag}
                               </span>
                             ))}
@@ -290,12 +337,17 @@ const SolutionsSection = () => {
                         <div className="mt-3 self-end flex items-center justify-between w-full">
                           <Link 
                             href={solution.link}
-                            className="text-[#CED4D7] text-sm hover:text-white transition-colors duration-300"
+                            className="text-[#CED4D7] text-sm hover:text-white transition-colors duration-300 focus-visible:outline-white focus-visible:outline-2 focus-visible:outline-offset-2"
+                            aria-label={`Learn more about ${solution.title}`}
                           >
-                            Learn more <span className="ml-1 group-hover:ml-2 transition-all duration-300">→</span>
+                            Learn more <span className="ml-1 group-hover:ml-2 transition-all duration-300" aria-hidden="true">→</span>
                           </Link>
                           
-                          <Link href={solution.link}>
+                          <Link 
+                            href={solution.link} 
+                            aria-label={`Explore ${solution.title} solution`}
+                            className="focus-visible:outline-white focus-visible:outline-2 focus-visible:outline-offset-4"
+                          >
                             <motion.div 
                               className="bg-[#FE6623] text-white p-3 rounded-full flex items-center justify-center w-12 h-12 transition-all duration-300"
                               whileHover={{ 
@@ -312,6 +364,7 @@ const SolutionsSection = () => {
                                 strokeWidth="2" 
                                 strokeLinecap="round" 
                                 strokeLinejoin="round"
+                                aria-hidden="true"
                               >
                                 <path d="M5 12H19M19 12L12 5M19 12L12 19" />
                               </svg>
@@ -330,7 +383,8 @@ const SolutionsSection = () => {
           <div className="text-center mt-[30px] lg:mt-[64px] md:hidden">
             <Link
               href="/products"
-              className="inline-flex items-center text-primary font-medium bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300"
+              className="inline-flex items-center text-primary font-medium bg-white px-6 py-3 rounded-full shadow-sm hover:shadow-md transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2"
+              aria-label="Explore all AI solutions"
             >
               <span>Explore All Solutions</span>
               <svg
@@ -338,6 +392,7 @@ const SolutionsSection = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
               >
                 <path
                   d="M17.5 12L6.5 12"
