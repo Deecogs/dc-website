@@ -19,6 +19,14 @@ const ProductsPage = () => {
       link: "/products/docurate"
     },
     {
+      id: "loupe", // Add this new product
+      category: "Healthcare",
+      title: "Loupe",
+      description: "AI-powered mobile app that scans medical reports and delivers clear, bilingual summaries for better patient understanding.",
+      image: "/image/loupe-thumbnail.png", // Add appropriate thumbnail image
+      link: "/products/loupe"
+    },
+    {
       id: "visiontech",
       category: "Vision Tech",
       title: "VisionTech",

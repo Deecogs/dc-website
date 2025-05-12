@@ -19,6 +19,7 @@ const Header = () => {
       dropdown: [
         { name: "Docurate", path: "/products/docurate" },
         { name: "VisionTech", path: "/coming-soon/visiontech" },
+        { name: "Loupe", path: "/products/loupe" },
         { name: "Fusio", path: "/coming-soon/fusio" },
         { name: "Rae", path: "/coming-soon/rae" },
         { name: "Notei", path: "/coming-soon/notei" }

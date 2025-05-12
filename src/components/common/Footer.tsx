@@ -73,8 +73,9 @@ const Footer = () => {
     {
       title: "Products",
       links: [
-        { text: "Docurate", href: "#" },
+        { text: "Docurate", href: "/products/docurate" },
         { text: "VisionTech", href: "#" },
+        { text: "Loupe", href: "/products/loupe" },
         { text: "Fusio", href: "#" },
         { text: "Rae", href: "#" },
         { text: "Notei", href: "#" },

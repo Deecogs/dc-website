@@ -43,6 +43,13 @@ const SolutionsSection = () => {
       category: "Computer Vision"
     },
     {
+      title: "Loupe",
+      description: "Transform complex medical reports into easy-to-understand summaries with AI-powered scanning and multilingual support.",
+      image: "/image/loupe-card.png", // Create an appropriate image
+      link: "/products/loupe",
+      category: "Healthcare"
+    },
+    {
       title: "Fusio",
       description: "Harnessing the Power of multimodal LLMs for advanced data processing, seamlessly integrating different data types.",
       image: "/image/llm-3.png",
