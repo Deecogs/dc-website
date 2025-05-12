@@ -5,6 +5,20 @@ import { Navbar } from "flowbite-react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import Button from "@/components/common/Button";
+import { generateNavigationSchema, generateJSONLD } from "@/utils/seoUtils";
+
+// Define TypeScript interface for menu items
+interface DropdownItem {
+  name: string;
+  path: string;
+  description?: string;
+}
+
+interface NavItem {
+  name: string;
+  path: string;
+  dropdown?: DropdownItem[];
+}
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -96,17 +110,27 @@ const Header = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
+  // Generate structured data JSON
+  const navStructuredData = generateNavigationSchema(navItems);
+
   return (
-    <motion.header 
+    <motion.header
       className={`fixed w-full z-[100] transition-all duration-300 ${
-        scrolled 
-          ? 'bg-black/60 backdrop-blur-md py-2 shadow-lg' 
+        scrolled
+          ? 'bg-black/60 backdrop-blur-md py-2 shadow-lg'
           : 'bg-black/20 backdrop-blur-sm py-4'
       }`}
       initial={{ y: -100, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
     >
+      {/* Add structured data script for SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: generateJSONLD(navStructuredData)
+        }}
+      />
       <div className="container max-w-[90rem] mx-auto px-5">
         <Navbar
           className="bg-transparent border-0 shadow-none py-0 flex items-center"
@@ -185,6 +209,8 @@ const Header = () => {
                                 href={dropdownItem.path}
                                 className="group flex flex-col px-4 py-3 text-sm text-gray-200 hover:text-primary transition-colors duration-200 focus:outline-none focus:bg-gray-800/50 focus:text-primary"
                                 role="menuitem"
+                                title={`${dropdownItem.name} - ${dropdownItem.description}`}
+                                aria-label={`${dropdownItem.name}: ${dropdownItem.description}`}
                               >
                                 <div className="flex items-center">
                                   <span className="h-1 w-0 bg-primary rounded-full mr-0 group-hover:w-3 group-hover:mr-2 transition-all duration-200"></span>
@@ -322,6 +348,8 @@ const Header = () => {
                                     className="flex flex-col py-2 text-sm text-gray-200 hover:text-primary transition-colors group focus:outline-none focus:text-primary focus:underline"
                                     onClick={handleMobileMenuToggle}
                                     role="menuitem"
+                                    title={`${dropdownItem.name} - ${dropdownItem.description}`}
+                                    aria-label={`${dropdownItem.name}: ${dropdownItem.description}`}
                                   >
                                     <div className="flex items-center">
                                       <span className="block h-1.5 w-1.5 rounded-full bg-gray-400 group-hover:bg-primary mr-2 transition-colors"></span>

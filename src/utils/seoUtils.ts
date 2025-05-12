@@ -179,12 +179,79 @@ export const structuredData = {
 };
 
 /**
- * Generate JSON-LD script tag content 
+ * Generate JSON-LD script tag content
  * @param data Structured data object
  * @returns JSON-LD string
  */
 export const generateJSONLD = (data: object): string => {
   return JSON.stringify(data);
+};
+
+/**
+ * Interface for sitemap item
+ */
+export interface SitemapItem {
+  url: string;
+  lastModified?: string;
+  changeFrequency?: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
+  priority?: number;
+}
+
+/**
+ * Generate sitemap data from navigation items
+ * @param navItems Navigation items array with potential dropdown menus
+ * @returns Array of sitemap items
+ */
+export const generateSitemapFromNavigation = (navItems: any[]): SitemapItem[] => {
+  const sitemapItems: SitemapItem[] = [];
+
+  // Add homepage
+  sitemapItems.push({
+    url: '/',
+    changeFrequency: 'weekly',
+    priority: 1.0,
+  });
+
+  // Process navigation items
+  navItems.forEach(item => {
+    if (item.path && item.path !== '#') {
+      sitemapItems.push({
+        url: item.path,
+        changeFrequency: 'monthly',
+        priority: 0.8,
+      });
+    }
+
+    // Process dropdown items
+    if (item.dropdown && Array.isArray(item.dropdown)) {
+      item.dropdown.forEach(dropdownItem => {
+        if (dropdownItem.path) {
+          sitemapItems.push({
+            url: dropdownItem.path,
+            changeFrequency: 'monthly',
+            priority: 0.7,
+          });
+        }
+      });
+    }
+  });
+
+  return sitemapItems;
+};
+
+/**
+ * Generate SiteNavigationElement structured data
+ * @param items Navigation items
+ * @returns SiteNavigationElement JSON-LD object
+ */
+export const generateNavigationSchema = (items: any[]) => {
+  return {
+    "@context": "https://schema.org",
+    "@type": "SiteNavigationElement",
+    "name": items.map(item => item.name),
+    "url": items.map(item => item.path !== "#" ? item.path :
+      item.dropdown && item.dropdown.length > 0 ? item.dropdown[0].path : "/")
+  };
 };
 
 /**
